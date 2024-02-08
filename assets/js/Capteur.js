@@ -40,19 +40,22 @@ class Capteur {
         if (temperature < 0) {
             this.thermometerFillElement.classList.add('blue');
             this.messageElement.classList.add('alert-info');
-            this.messageElement.textContent = 'Brrrrrrr, un peu froid ce matin, mets ta cagoule !';
-        } else if (temperature <= 20) {
+            this.messageElement.textContent = 'canalisations gelées, appelez SOS plombier et mettez un bonnet !';
+        } else if (temperature <= 12) {
             this.thermometerFillElement.classList.add('green');
             this.messageElement.classList.add('alert-success');
-            this.messageElement.textContent = 'Il fait bon, c\'est le moment de sortir les tongs !';
-        } else if (temperature <= 30) {
+            this.messageElement.textContent = 'montez le chauffage ou mettez un gros pull !';
+        } else if (temperature < 22) {
+            this.thermometerFillElement.classList.add('green');
+            this.messageElement.classList.add('alert-success');
+        } else if (temperature >= 22) {
             this.thermometerFillElement.classList.add('orange');
             this.messageElement.classList.add('alert-warning');
-            this.messageElement.textContent = 'Il fait chaud, c\'est le moment de sortir les tongs !';
-        } else {
+            this.messageElement.textContent = 'Baissez le chauffage !';
+        } else if (temperature >= 50) {
             this.thermometerFillElement.classList.add('red');
-            this.messageElement.classList.add('alert-danger');
-            this.messageElement.textContent = 'Caliente ! Vamos a la playa, ho hoho hoho !!';
+            this.messageElement.classList.add('alert-warning');
+            this.messageElement.textContent = 'Appelez les pompiers ou arrêtez votre barbecue !';
         }
     }
 }
