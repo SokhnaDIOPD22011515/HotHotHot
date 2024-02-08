@@ -8,9 +8,18 @@
 </head>
 <body>
 
+<header>
+    <nav>
+        <ul>
+            <li><a href="">Accueil</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+    </nav>
+</header>
+
 <section>
     <div role="tablist">
-        <button role="tab" id="tab1" aria-selected="true" aria-controls="panel1">Capteur</button>
+        <button role="tab" id="tab1" aria-selected="true" aria-controls="panel1">Capteurs</button>
         <button role="tab" id="tab2" aria-controls="panel2">Historique</button>
     </div>
     <div id="panel1" role="tabpanel" aria-labelledby="tab1">
@@ -21,6 +30,13 @@
         <p id="temperature" aria-live="polite">20°C</p>
         <p id="message" role="alert"></p>
         <canvas id="temperatureChart"></canvas>
+
+        <div class="thermometer">
+            <div class="thermometer-fill" id="thermometer-ext-fill" aria-live="polite"></div>
+        </div>
+        <p id="temperature-int" aria-live="polite">20°C</p>
+        <p id="message-int" role="alert"></p>
+        <canvas id="temperatureIntChart"></canvas>
     </div>
     <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
         <h1>Historique des températures</h1>
