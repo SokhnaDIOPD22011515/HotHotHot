@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermomètre</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<script src="assets/js/script.js"></script>
+
+<section>
+    <div role="tablist">
+        <button role="tab" id="tab1" aria-selected="true" aria-controls="panel1">Capteur</button>
+        <button role="tab" id="tab2" aria-controls="panel2">Historique</button>
+    </div>
+    <div id="panel1" role="tabpanel" aria-labelledby="tab1">
+        <h1>Température actuelle</h1>
+        <div class="thermometer">
+            <div class="thermometer-fill" id="thermometer-fill" aria-live="polite"></div>
+        </div>
+        <p id="temperature" aria-live="polite">20°C</p>
+        <p id="message" role="alert"></p>
+        <canvas id="temperatureChart"></canvas>
+    </div>
+    <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
+        <h1>Historique des températures</h1>
+        <ul id="historique" aria-live="polite"></ul>
+    </div>
+</section>
+<script type="module" src="assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 </html>
