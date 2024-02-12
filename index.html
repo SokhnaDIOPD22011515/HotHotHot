@@ -36,7 +36,8 @@
         <button role="tab" id="tab2" aria-controls="panel2">Historique</button>
     </div>
    <div id="panel1" role="tabpanel" aria-labelledby="tab1">
-    <h1>Température actuelle</h1>
+
+    <h1>Température Interieur</h1>
     <div class="thermometer">
         <div class="thermometer-fill" id="thermometerIntFillInt" aria-live="polite"></div>
     </div>
@@ -44,10 +45,11 @@
     <p id="messageIntInt" role="alert"></p>
     <canvas id="temperatureChart"></canvas>
 
+    <h1>Température Exterieur</h1>
     <div class="thermometer">
         <div class="thermometer-fill" id="thermometerExtFillExt" aria-live="polite"></div>
     </div>
-    <p id="temperatureExtExt" aria-live="polite">20°C</p>
+    <p id="temperatureExtExt" aria-live="polite"></p>
     <p id="messageExtExt" role="alert"></p>
     <canvas id="temperatureIntChart"></canvas>
 </div>

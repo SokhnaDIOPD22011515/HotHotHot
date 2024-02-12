@@ -8,7 +8,8 @@ class Sensor {
         this.fetchData();
     }
 
-    fetchData() {
+fetchData() {
+    setInterval(() => {
         const cachedData = this.cache.get(this.getApiUrl());
         if (cachedData) {
             this.updateTemperature(cachedData);
@@ -17,20 +18,25 @@ class Sensor {
 
         this.fetchDataFromAPI()
             .then(data => {
-                const temperature = data.Valeur;
-                this.cache.set(this.getApiUrl(), temperature);
-                this.updateTemperature(temperature);
+                console.log('Received data:', data);
+                if (data && data.capteurs && data.capteurs.length > 0 && 'Valeur' in data.capteurs[0]) {
+                    const temperature = data.capteurs[0].Valeur;
+                    this.cache.set(this.getApiUrl(), temperature);
+                    this.updateTemperature(temperature);
+                } else {
+                    console.error('Unexpected data format:', data);
+                }
             })
             .catch(error => {
                 console.error('Error fetching temperature data:', error);
-            })
-            .finally(() => {
-                setTimeout(() => this.fetchData(), 5000); // Fetch data 5 seconds after the previous fetch is completed
             });
-    }
+    }, 5000);
+}
 
+    fetchDataFromAPI() {
+        throw new Error('fetchDataFromAPI() must be implemented in child class');
+    }
     getApiUrl() {
-        // This method should be implemented in child classes and return the API URL
         throw new Error('getApiUrl() must be implemented in child class');
     }
 
@@ -65,5 +71,6 @@ class Sensor {
             this.messageElement.textContent = 'Appelez les pompiers ou arrêtez votre barbecue !';
         }
     }
+
 }
 export default Sensor;
