@@ -1,24 +1,33 @@
-import Historique from './Historique.js';
-
-class Capteur {
-    constructor() {
-        this.thermometerFillElement = document.getElementById('thermometer-fill');
-        this.temperatureElement = document.getElementById('temperature');
-        this.messageElement = document.getElementById('message');
-        this.historique = new Historique();
-
+class Sensor {
+    constructor(thermometerFillElement, temperatureElement, messageElement, historic) {
+        this.thermometerFillElement = thermometerFillElement;
+        this.temperatureElement = temperatureElement;
+        this.messageElement = messageElement;
+        this.historic = historic;
         this.fetchDataFromAPI();
     }
 
     fetchDataFromAPI() {
-        fetch('https://hothothot.dog/api/capteurs/exterieur')
+        fetch('https://hothothot.dog/api/capteurs')
             .then(response => response.json())
             .then(data => {
-                const temperature = data.capteurs[0].Valeur;
-                this.updateTemperature(temperature);
+                const capteurInterieur = data.capteurs.find(capteur => capteur.Nom === 'interieur');
+                const capteurExterieur = data.capteurs.find(capteur => capteur.Nom === 'exterieur');
 
-                // Stocker les données dans le localStorage
-                localStorage.setItem('historique', JSON.stringify(data));
+                // Vérifier si les capteurs ont été trouvés
+                if (capteurInterieur && capteurExterieur) {
+                    const temperatureInterieur = capteurInterieur.Valeur;
+                    const temperatureExterieur = capteurExterieur.Valeur;
+
+                    // Mettre à jour l'interface ou effectuer d'autres actions avec les données
+                    this.updateTemperature(temperatureInterieur, 'interieur');
+                    this.updateTemperature(temperatureExterieur, 'exterieur');
+
+                    // Stocker les données dans le localStorage
+                    localStorage.setItem('history', JSON.stringify(data));
+                } else {
+                    console.error('Capteurs introuvables dans les données.');
+                }
             })
             .catch(error => {
                 console.error('Error fetching temperature data:', error);
@@ -28,12 +37,13 @@ class Capteur {
             });
     }
 
+
     updateTemperature(temperature) {
         let percentage = (temperature + 10) / 50 * 100;
         this.thermometerFillElement.style.height = percentage + '%';
         this.temperatureElement.textContent = temperature + '°C';
 
-        this.historique.ajouterTemperature(temperature, new Date().toLocaleTimeString('fr-FR'));
+        this.historic.addTemperature(temperature, new Date().toLocaleTimeString('fr-FR'));
 
         this.thermometerFillElement.classList.remove('blue', 'green', 'orange', 'red');
         this.messageElement.classList.remove('alert-info', 'alert-success', 'alert-warning', 'alert-danger');
@@ -59,5 +69,3 @@ class Capteur {
         }
     }
 }
-
-export default Capteur;

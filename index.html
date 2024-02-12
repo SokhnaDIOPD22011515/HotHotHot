@@ -12,6 +12,8 @@
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/assets/manifest/manifest.webmanifest" />
+
 </head>
 <body>
 
@@ -32,25 +34,25 @@
     <div id="panel1" role="tabpanel" aria-labelledby="tab1">
         <h1>Température actuelle</h1>
         <div class="thermometer">
-            <div class="thermometer-fill" id="thermometer-fill" aria-live="polite"></div>
+            <div class="thermometer-fill" id="thermometerIntFill" aria-live="polite"></div>
         </div>
-        <p id="temperature" aria-live="polite">20°C</p>
-        <p id="message" role="alert"></p>
+        <p id="temperatureInt" aria-live="polite">20°C</p>
+        <p id="messageInt" role="alert"></p>
         <canvas id="temperatureChart"></canvas>
 
         <div class="thermometer">
-            <div class="thermometer-fill" id="thermometer-ext-fill" aria-live="polite"></div>
+            <div class="thermometer-fill" id="thermometerExtFill" aria-live="polite"></div>
         </div>
-        <p id="temperature-int" aria-live="polite">20°C</p>
-        <p id="message-int" role="alert"></p>
+        <p id="temperatureExt" aria-live="polite">20°C</p>
+        <p id="messageExt" role="alert"></p>
         <canvas id="temperatureIntChart"></canvas>
     </div>
     <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
         <h1>Historique des températures</h1>
-        <ul id="historique" aria-live="polite"></ul>
+        <ul id="history" aria-live="polite"></ul>
     </div>
 </section>
-<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/Main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>

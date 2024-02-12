@@ -1,6 +1,6 @@
-class Historique {
+class History {
     constructor() {
-        this.historiqueElement = document.getElementById('historique');
+        this.historyElement = document.getElementById('history');
         this.chartElement = document.getElementById('temperatureChart');
         this.chartContext = this.chartElement.getContext('2d');
         this.chart = new Chart(this.chartContext, {
@@ -23,14 +23,14 @@ class Historique {
             .then(response => response.json())
             .then(data => {
                 const temperature = data.capteurs[0].Valeur;
-                this.ajouterTemperature(temperature, new Date().toLocaleTimeString('fr-FR'));
+                this.addTemperature(temperature, new Date().toLocaleTimeString('fr-FR'));
             })
             .catch(error => {
                 console.error('Error fetching temperature data:', error);
             });
     }
 
-    ajouterTemperature(temperature, timestamp) {
+    addTemperature(temperature, timestamp) {
         let tableRow = document.createElement('tr');
         let timeCell = document.createElement('td');
         let tempCell = document.createElement('td');
@@ -41,7 +41,7 @@ class Historique {
         tableRow.appendChild(timeCell);
         tableRow.appendChild(tempCell);
 
-        this.historiqueElement.appendChild(tableRow);
+        this.historyElement.appendChild(tableRow);
 
         this.chart.data.labels.push(timestamp);
         this.chart.data.datasets[0].data.push(temperature);
@@ -49,4 +49,4 @@ class Historique {
     }
 }
 
-export default Historique;
+export default History;
