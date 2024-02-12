@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thermomètre</title>
     <link rel="stylesheet" href="assets/css/style.css">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+    <link rel="manifest" href="assets/manifest/manifest.webmanifest" />
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
-    <link rel="manifest" href="/assets/manifest/manifest.webmanifest" />
+
 
 </head>
 <body>
@@ -31,22 +35,22 @@
         <button role="tab" id="tab1" aria-selected="true" aria-controls="panel1">Capteurs</button>
         <button role="tab" id="tab2" aria-controls="panel2">Historique</button>
     </div>
-    <div id="panel1" role="tabpanel" aria-labelledby="tab1">
-        <h1>Température actuelle</h1>
-        <div class="thermometer">
-            <div class="thermometer-fill" id="thermometerIntFill" aria-live="polite"></div>
-        </div>
-        <p id="temperatureInt" aria-live="polite">20°C</p>
-        <p id="messageInt" role="alert"></p>
-        <canvas id="temperatureChart"></canvas>
-
-        <div class="thermometer">
-            <div class="thermometer-fill" id="thermometerExtFill" aria-live="polite"></div>
-        </div>
-        <p id="temperatureExt" aria-live="polite">20°C</p>
-        <p id="messageExt" role="alert"></p>
-        <canvas id="temperatureIntChart"></canvas>
+   <div id="panel1" role="tabpanel" aria-labelledby="tab1">
+    <h1>Température actuelle</h1>
+    <div class="thermometer">
+        <div class="thermometer-fill" id="thermometerIntFillInt" aria-live="polite"></div>
     </div>
+    <p id="temperatureIntInt" aria-live="polite">20°C</p>
+    <p id="messageIntInt" role="alert"></p>
+    <canvas id="temperatureChart"></canvas>
+
+    <div class="thermometer">
+        <div class="thermometer-fill" id="thermometerExtFillExt" aria-live="polite"></div>
+    </div>
+    <p id="temperatureExtExt" aria-live="polite">20°C</p>
+    <p id="messageExtExt" role="alert"></p>
+    <canvas id="temperatureIntChart"></canvas>
+</div>
     <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
         <h1>Historique des températures</h1>
         <ul id="history" aria-live="polite"></ul>

@@ -1,18 +1,23 @@
-import Tab from "./Tab";
+import Tab from "./Tab.js";
+import SensorInside from "./SensorInside.js";
+import SensorOutside from "./SensorOutside.js";
+import History from "./History.js";
 
-let history = new History();
-let tab = new Tab();
+document.addEventListener('DOMContentLoaded', () => {
+    let history = new History();
+    let tab = new Tab();
 
-let sensorInt = new SensorInside(
-    document.getElementById('thermometerIntFill'),
-    document.getElementById('temperatureInt'),
-    document.getElementById('messageInt'),
-    history
-);
-let sensorExt = new SensorOutside(
-    document.getElementById('thermometerExtFill'),
-    document.getElementById('temperatureExt'),
-    document.getElementById('messageExt'),
-    history
-);
-tab.init();
+    let sensorInt = new SensorInside(
+        document.getElementById('thermometerIntFillInt'),
+        document.getElementById('temperatureIntInt'),
+        document.getElementById('messageIntInt'),
+        history
+    );
+    let sensorExt = new SensorOutside(
+        document.getElementById('thermometerExtFillExt'),
+        document.getElementById('temperatureExtExt'),
+        document.getElementById('messageExtExt'),
+        history
+    );
+    tab.init();
+});

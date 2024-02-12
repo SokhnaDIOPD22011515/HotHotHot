@@ -4,37 +4,26 @@ class Sensor {
         this.temperatureElement = temperatureElement;
         this.messageElement = messageElement;
         this.historic = historic;
-        this.fetchDataFromAPI();
+        this.fetchData();
     }
 
-    fetchDataFromAPI() {
-        fetch('https://hothothot.dog/api/capteurs')
-            .then(response => response.json())
+    fetchData() {
+        this.fetchDataFromAPI()
             .then(data => {
-                const capteurInterieur = data.capteurs.find(capteur => capteur.Nom === 'interieur');
-                const capteurExterieur = data.capteurs.find(capteur => capteur.Nom === 'exterieur');
-
-                // Vérifier si les capteurs ont été trouvés
-                if (capteurInterieur && capteurExterieur) {
-                    const temperatureInterieur = capteurInterieur.Valeur;
-                    const temperatureExterieur = capteurExterieur.Valeur;
-
-                    // Mettre à jour l'interface ou effectuer d'autres actions avec les données
-                    this.updateTemperature(temperatureInterieur, 'interieur');
-                    this.updateTemperature(temperatureExterieur, 'exterieur');
-
-                    // Stocker les données dans le localStorage
-                    localStorage.setItem('history', JSON.stringify(data));
-                } else {
-                    console.error('Capteurs introuvables dans les données.');
-                }
+                const temperature = data.Valeur;
+                this.updateTemperature(temperature);
             })
             .catch(error => {
                 console.error('Error fetching temperature data:', error);
             })
             .finally(() => {
-                setTimeout(() => this.fetchDataFromAPI(), 5000); // Fetch data 5 seconds after the previous fetch is completed
+                setTimeout(() => this.fetchData(), 5000); // Fetch data 5 seconds after the previous fetch is completed
             });
+    }
+
+    fetchDataFromAPI() {
+        // Cette méthode sera définie dans chaque classe enfant
+        throw new Error('fetchDataFromAPI() must be implemented in child class');
     }
 
 
@@ -69,3 +58,4 @@ class Sensor {
         }
     }
 }
+export default Sensor;

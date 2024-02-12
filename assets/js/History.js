@@ -1,3 +1,6 @@
+import SensorInside from "./SensorInside.js";
+import SensorOutside from "./SensorOutside.js";
+
 class History {
     constructor() {
         this.historyElement = document.getElementById('history');
@@ -19,16 +22,24 @@ class History {
     }
 
     fetchDataFromAPI() {
-        fetch('https://hothothot.dog/api/capteurs/exterieur')
-            .then(response => response.json())
-            .then(data => {
-                const temperature = data.capteurs[0].Valeur;
-                this.addTemperature(temperature, new Date().toLocaleTimeString('fr-FR'));
-            })
-            .catch(error => {
-                console.error('Error fetching temperature data:', error);
-            });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Créer les instances des capteurs
+            let sensorInt = new SensorInside();
+            let sensorExt = new SensorOutside();
+
+            // Faire les appels aux deux capteurs
+            Promise.all([sensorInt.fetchDataFromAPI(), sensorExt.fetchDataFromAPI()])
+                .then(([dataInt, dataExt]) => {
+                    // Ajouter les températures à l'historique
+                    this.addTemperature(dataInt.Valeur, dataInt.Date);
+                    this.addTemperature(dataExt.Valeur, dataExt.Date);
+                })
+                .catch(error => {
+                    console.error('Error fetching temperature data:', error);
+                });
+        });
     }
+
 
     addTemperature(temperature, timestamp) {
         let tableRow = document.createElement('tr');
