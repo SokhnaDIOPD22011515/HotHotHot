@@ -5,8 +5,12 @@ class SensorOutside extends Sensor{
         super(thermometerFillElement, temperatureElement, messageElement, historic);
     }
 
+    getApiUrl() {
+        return 'https://hothothot.dog/api/capteurs/exterieur';
+    }
+
     async fetchDataFromAPI() {
-        const response = await fetch('https://hothothot.dog/api/capteurs/exterieur'); // Modifiez l'URL ici
+        const response = await fetch(this.getApiUrl());
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -4,13 +4,21 @@ class Sensor {
         this.temperatureElement = temperatureElement;
         this.messageElement = messageElement;
         this.historic = historic;
+        this.cache = new Map();
         this.fetchData();
     }
 
     fetchData() {
+        const cachedData = this.cache.get(this.getApiUrl());
+        if (cachedData) {
+            this.updateTemperature(cachedData);
+            return;
+        }
+
         this.fetchDataFromAPI()
             .then(data => {
                 const temperature = data.Valeur;
+                this.cache.set(this.getApiUrl(), temperature);
                 this.updateTemperature(temperature);
             })
             .catch(error => {
@@ -21,9 +29,9 @@ class Sensor {
             });
     }
 
-    fetchDataFromAPI() {
-        // Cette méthode sera définie dans chaque classe enfant
-        throw new Error('fetchDataFromAPI() must be implemented in child class');
+    getApiUrl() {
+        // This method should be implemented in child classes and return the API URL
+        throw new Error('getApiUrl() must be implemented in child class');
     }
 
 
