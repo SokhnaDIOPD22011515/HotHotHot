@@ -10,36 +10,49 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "images/touch/homescreen48.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen72.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen168.png",
-      "sizes": "168x168",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen192.png",
+      "src": "../favicon/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "../favicon/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "../favicon/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "../favicon/favicon.ico",
+      "sizes": "48x48",
+    },
+    {
+      "src": "../favicon/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "../favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "../favicon/mstile-150x150.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "../favicon/safari-pinned-tab.svg",
+      "sizes": "667x667",
     }
   ],
+
+
+
+
+
   "related_applications": [
     {
       "platform": "web"
