@@ -26,7 +26,7 @@
     },
     {
       "src": "../favicon/favicon.ico",
-      "sizes": "48x48",
+      "sizes": "48x48"
     },
     {
       "src": "../favicon/favicon-16x16.png",
@@ -45,7 +45,7 @@
     },
     {
       "src": "../favicon/safari-pinned-tab.svg",
-      "sizes": "667x667",
+      "sizes": "667x667"
     }
   ],
 
