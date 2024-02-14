@@ -2,18 +2,6 @@ let tabInt = []
 let tabExt = []
 
 
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
-
-for (let valeur = 0; valeur < 25; valeur++) {
-    tabInt.push(getRandomNumber(-10, 40));
-}
-
-for (let valeur = 0; valeur < 25; valeur++) {
-    tabExt.push(getRandomNumber(-10, 40));
-}
-
 function showMaxMin(){
     let maxCapteurInt = Math.max(...tabInt);
     let minCapteurInt = Math.min(...tabInt);

@@ -14,8 +14,7 @@ self.addEventListener('install', function(evt) {
     }));
 });
 
-// On fetch, use cache but update the entry with the latest contents
-// from the server.
+// On fetch, use cache but update the entry with the latest contents from the server.
 self.addEventListener('fetch', function(evt) {
     console.log('The service worker is serving the asset.');
     // You can use `respondWith()` to answer ASAP...
@@ -30,9 +29,7 @@ self.addEventListener('fetch', function(evt) {
     );
 });
 
-// Open the cache where the assets were stored and search for the requested
-// resource. Notice that in case of no matching, the promise still resolves
-// but it does with `undefined` as value.
+// Open the cache where the assets were stored and search for the requested resource. Notice that in case of no matching, the promise still resolves but it does with `undefined` as value.
 function fromCache(request) {
     console.log('match cache request');
     return caches.open(CACHE).then(function (cache) {
@@ -40,9 +37,7 @@ function fromCache(request) {
     });
 }
 
-
-// Update consists in opening the cache, performing a network request and
-// storing the new response data.
+// Update consists in opening the cache, performing a network request and storing the new response data.
 function update(request) {
     console.log('update cache');
     return caches.open(CACHE).then(function (cache) {
@@ -63,7 +58,7 @@ function refresh(response) {
             // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) the client can
             // check if the content has changed.
 
-            var message = {
+            let message = {
                 type: 'refresh',
                 url: response.url,
                 // Notice not all servers return the ETag header. If this is not
@@ -78,7 +73,7 @@ function refresh(response) {
 }
 
 // bouton pour s'abonner aux notifs.
-var button = document.getElementById("notifications");
+let button = document.getElementById("notifications");
 button.addEventListener('click', function(e) {
     Notification.requestPermission().then(function(result) {
         if(result === 'granted') {
@@ -87,31 +82,27 @@ button.addEventListener('click', function(e) {
     });
 });
 
-
 function randomNotification() {
     let randomNumber = getRandomInt(5);
     console.log(randomNumber);
     if(randomNumber >= 2) {
 
-        var notifTitle = "Chaud, non ?";
-        var notifBody = 'Température : ' + randomNumber + '.';
-        var notifImg = '/assets/images/android-chrome-192x192.png';
-        var options = {
+        let notifTitle = "Chaud, non ?";
+        let notifBody = 'Température : ' + randomNumber + '.';
+        let notifImg = '/assets/images/android-chrome-192x192.png';
+        let options = {
             body: notifBody,
             icon: notifImg
         }
-        var notif = new Notification(notifTitle, options);
+        let notif = new Notification(notifTitle, options);
     }
     setTimeout(randomNotification, 30000);
 }
-
-
 
 //On génére un nombre aléatoire pour la démo
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
-
 
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');

@@ -32,7 +32,7 @@ if ('serviceWorker' in navigator) {
         });
 }
 
-
+/*
 let socket = new WebSocket(‘wss: url du serveur:numéro de port');
 socket.onopen = function(event) {
     console.log("Connexion établie");
@@ -49,4 +49,4 @@ socket.onopen = function(event) {
         var datas = document.getElementById("datas");
         datas.innerHTML = event.data;
     }
-}
+}*/
