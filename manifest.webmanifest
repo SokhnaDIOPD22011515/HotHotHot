@@ -1,14 +1,17 @@
 {
-  "name": "HotHotHot",
-  "short_name": "HHH",
-  "start_url": "./?utm_source=web_app_manifest",
-  "display": "standalone",
-  "background_color": "white",
-  "description": "L'application qui vous donne la température en temps réél !",
-  "dir": "ltr",
-  "lang": "fr",
-  "display": "standalone",
-  "icons": [
+    "name": "HotHotHot",
+    "short_name": "HHH",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "white",
+    "description": "L'application qui vous donne la température en temps réel !",
+    "dir": "ltr",
+    "lang": "fr",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "scope": "/",
+    "theme_color": "#ffffff",
+    "icons": [
     {
       "src": "../favicon/android-chrome-192x192.png",
       "sizes": "192x192",
@@ -26,7 +29,7 @@
     },
     {
       "src": "../favicon/favicon.ico",
-      "sizes": "48x48",
+      "sizes": "48x48"
     },
     {
       "src": "../favicon/favicon-16x16.png",
@@ -45,21 +48,6 @@
     },
     {
       "src": "../favicon/safari-pinned-tab.svg",
-      "sizes": "667x667",
-    }
-  ],
-
-
-
-
-
-  "related_applications": [
-    {
-      "platform": "web"
-    },
-    {
-      "platform": "play",
-      "url": "https://play.google.com/store/apps/details?id=com.google.samples.apps.iosched"
-    }
-  ]
+      "sizes": "667x667"
+    }]
 }
