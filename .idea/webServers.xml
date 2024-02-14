@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4c7e34cd-e5e8-4cd8-ad02-eb3453d02661" name="HotHotHot" url="https://itshothothot.alwaysdata.net/hot/">
+        <fileTransfer rootFolder="/home/itshothothot/www/hot/" accessType="SFTP" host="ssh-itshothothot.alwaysdata.net" port="22" sshConfigId="a7862418-2127-497e-8c72-e92eed945401" sshConfig="itshothothot@ssh-itshothothot.alwaysdata.net:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
