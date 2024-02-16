@@ -40,6 +40,12 @@ class History {
         });
     }
 
+    addDataToJson(data) {
+        let history = JSON.parse(localStorage.getItem('history')) || [];
+        history.push(data);
+        localStorage.setItem('history', JSON.stringify(history));
+    }
+
 
     addTemperature(temperature, timestamp) {
         let tableRow = document.createElement('tr');
@@ -57,6 +63,8 @@ class History {
         this.chart.data.labels.push(timestamp);
         this.chart.data.datasets[0].data.push(temperature);
         this.chart.update();
+        this.addDataToJson({temperature, timestamp});
+
     }
 }
 

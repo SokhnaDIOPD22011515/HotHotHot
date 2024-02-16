@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Modification de la disposition de éléments dans la navbar" />
+    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Modification de la disposition de éléments dans la navbar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/History.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/History.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +61,7 @@
       <workItem from="1707931685190" duration="1179000" />
       <workItem from="1708022674127" duration="1968000" />
       <workItem from="1708073400160" duration="1621000" />
+      <workItem from="1708080344601" duration="4236000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
