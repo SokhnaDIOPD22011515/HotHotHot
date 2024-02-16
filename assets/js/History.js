@@ -21,6 +21,7 @@ class History {
         this.fetchDataFromAPI();
     }
 
+
     fetchDataFromAPI() {
         document.addEventListener('DOMContentLoaded', () => {
             // Créer les instances des capteurs

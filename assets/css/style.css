@@ -1,6 +1,66 @@
 body {
     font-family: Arial, sans-serif;
 }
+
+/*-------------------------------------NAVBAR------------------------------------*/
+
+header {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    display: block;
+}
+
+nav ul li a button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 2vh;
+}
+
+.add-button {
+    background-color: #008CBA;
+}
+
+#panel1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#temp-int, #temp-ext{
+    text-align: center;
+}
+
+/*-------------------------------------THERMOMETERS------------------------------------*/
+
 section {
     width: 80%;
     margin: auto;
@@ -125,36 +185,51 @@ section {
     background-color: red;
 }
 
-#panel1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
+/*-------------------------------------MEDIA QUERIES------------------------------------*/
 
-/*#temp-int, #temp-ext{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}*/
 
 @media only screen and (max-width : 900px){
     header{
         padding: 0 30px;
+        background-color: white;
     }
 
-}
+    nav ul li a{
+        color: #000;
+    }
 
-@media only screen and (max-width : 900px){
+    nav ul li a button{
+        color: white;
+    }
+
+    section{
+        width: 95%;
+    }
+
     #panel1{
         flex-direction: column;
     }
+}
 
-    /*#temp-int, #temp-ext{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }*/
+
+@media screen and (max-width: 768px) {
+    header{
+        margin-bottom: 2vh;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+
+    nav ul li a {
+        padding: 10px;
+    }
+
+    nav ul li a button {
+        padding: 10px;
+    }
 }
