@@ -16,4 +16,4 @@ socket.onclose = function(event) {
     console.log('WebSocket connection closed');
 };
 
-socket.send('Hello server!');
+// socket.send('Hello server!');
