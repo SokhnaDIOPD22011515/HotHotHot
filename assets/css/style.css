@@ -124,3 +124,37 @@ section {
 .red{
     background-color: red;
 }
+
+#panel1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+/*#temp-int, #temp-ext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}*/
+
+@media only screen and (max-width : 900px){
+    header{
+        padding: 0 30px;
+    }
+
+}
+
+@media only screen and (max-width : 900px){
+    #panel1{
+        flex-direction: column;
+    }
+
+    /*#temp-int, #temp-ext{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }*/
+}
