@@ -12,15 +12,15 @@ class History {
                 labels: [],
                 datasets: [
                     {
-                        label: 'Temperature Inside',
+                        label: 'Temperature Interieur',
                         data: [],
-                        borderColor: 'rgb(255, 0, 0)',
+                        borderColor: 'rgb(0,255,196)',
                         tension: 1
                     },
                     {
-                        label: 'Temperature Outside',
+                        label: 'Temperature Exterieur',
                         data: [],
-                        borderColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(133,255,99)',
                         tension: 0.1
                     }
                 ]
@@ -70,23 +70,36 @@ class History {
             });
     }
 
-    addTemperature(temperature, timestamp, datasetIndex) {
-        let tableRow = document.createElement('tr');
-        let timeCell = document.createElement('td');
-        let tempCell = document.createElement('td');
-
-        timeCell.textContent = timestamp;
-        tempCell.textContent = temperature + '°C';
-
-        tableRow.appendChild(timeCell);
-        tableRow.appendChild(tempCell);
-
-        this.historyElement.appendChild(tableRow);
-
-        this.chart.data.labels.push(timestamp);
-        this.chart.data.datasets[datasetIndex].data.push(temperature);
-        this.chart.update();
-        this.addDataToJson({temperature, timestamp});
+ addTemperature(temperature, timestamp, datasetIndex) {
+    // Check if the temperature is undefined
+    if (temperature === undefined) {
+        return; // If it is, don't add the new data
     }
+
+    let history = JSON.parse(localStorage.getItem('history')) || [];
+    let lastEntry = history[history.length - 1];
+
+    // Check if the last entry has the same timestamp and temperature
+    if (lastEntry && lastEntry.timestamp === timestamp && lastEntry.temperature === temperature) {
+        return; // If it does, don't add the new data
+    }
+
+    let tableRow = document.createElement('tr');
+    let timeCell = document.createElement('td');
+    let tempCell = document.createElement('td');
+
+    timeCell.textContent = timestamp;
+    tempCell.textContent = temperature + '°C';
+
+    tableRow.appendChild(timeCell);
+    tableRow.appendChild(tempCell);
+
+    this.historyElement.appendChild(tableRow);
+
+    this.chart.data.labels.push(timestamp);
+    this.chart.data.datasets[datasetIndex].data.push(temperature);
+    this.chart.update();
+    this.addDataToJson({temperature, timestamp});
+}
 }
 export default History;
