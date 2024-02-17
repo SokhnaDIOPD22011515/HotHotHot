@@ -62,10 +62,15 @@
         <canvas id="temperatureChart"></canvas>
         <canvas id="temperatureIntChart"></canvas>
     </div>
-    <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
-        <h1>Historique des températures</h1>
-        <ul id="history" aria-live="polite"></ul>
+   <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
+    <h1>Historique des températures</h1>
+    <div id="history">
+        <h2>Température Intérieure</h2>
+        <ul id="history-interior" aria-live="polite"></ul>
+        <h2>Température Extérieure</h2>
+        <ul id="history-exterior" aria-live="polite"></ul>
     </div>
+</div>
 </section>
 <script type="module" src="assets/js/Main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

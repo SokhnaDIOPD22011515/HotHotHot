@@ -70,7 +70,7 @@ class History {
             });
     }
 
- addTemperature(temperature, timestamp, datasetIndex) {
+addTemperature(temperature, timestamp, datasetIndex) {
     // Check if the temperature is undefined
     if (temperature === undefined) {
         return; // If it is, don't add the new data
@@ -84,17 +84,12 @@ class History {
         return; // If it does, don't add the new data
     }
 
-    let tableRow = document.createElement('tr');
-    let timeCell = document.createElement('td');
-    let tempCell = document.createElement('td');
+    let tableRow = document.createElement('li');
+    tableRow.textContent = `${timestamp} - ${temperature}°C`;
 
-    timeCell.textContent = timestamp;
-    tempCell.textContent = temperature + '°C';
-
-    tableRow.appendChild(timeCell);
-    tableRow.appendChild(tempCell);
-
-    this.historyElement.appendChild(tableRow);
+    // Add the new data to the correct list based on the dataset index
+    let historyElement = document.getElementById(datasetIndex === 0 ? 'history-interior' : 'history-exterior');
+    historyElement.appendChild(tableRow);
 
     this.chart.data.labels.push(timestamp);
     this.chart.data.datasets[datasetIndex].data.push(temperature);

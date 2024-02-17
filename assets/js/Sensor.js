@@ -22,7 +22,7 @@ class Sensor {
                 .catch(error => {
                     console.error('Error fetching temperature data:', error);
                 });
-        }, 5000);
+        }, 10000);
     }
 
     fetchDataFromAPI() {

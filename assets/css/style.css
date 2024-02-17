@@ -184,7 +184,19 @@ section {
 .red{
     background-color: red;
 }
+/*-------------------------------------HISTORIQUE------------------------------------*/
+#history {
+    display: flex;
+    justify-content: space-between;
+}
 
+#history-interior {
+    width: 45%;
+}
+
+#history-exterior {
+    text-align: right;
+}
 /*-------------------------------------MEDIA QUERIES------------------------------------*/
 
 
