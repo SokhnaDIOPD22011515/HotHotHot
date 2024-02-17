@@ -2,6 +2,7 @@ import Tab from "./Tab.js";
 import SensorInside from "./SensorInside.js";
 import SensorOutside from "./SensorOutside.js";
 import History from "./History.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     let history = new History();
     let tab = new Tab();
@@ -21,17 +22,76 @@ document.addEventListener('DOMContentLoaded', () => {
     tab.init();
 });
 
-
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('service-worker.js')
         .then(registration => {
-            console.log('Service Worker enregistré avec succès : ', registration);
+            console.log('Service Worker registered successfully: ', registration);
         })
         .catch(error => {
-            console.error("Erreur lors de l'enregistrement du Service Worker : ", error);
+            console.error("Error during Service Worker registration: ", error);
         });
 }
 
+// bouton pour s'abonner aux notifs.
+let button = document.getElementById("notifications");
+button.addEventListener('click', function(e) {
+    Notification.requestPermission().then(function(result) {
+        if(result === 'granted') {
+            randomNotification();
+        }
+    });
+});
+
+function randomNotification() {
+    let randomNumber = getRandomInt(5);
+    console.log(randomNumber);
+    if(randomNumber >= 2) {
+
+        let notifTitle = "Chaud, non ?";
+        let notifBody = 'Température : ' + randomNumber + '.';
+        let notifImg = '/assets/images/android-chrome-192x192.png';
+        let options = {
+            body: notifBody,
+            icon: notifImg
+        }
+        let notif = new Notification(notifTitle, options);
+    }
+    setTimeout(randomNotification, 30000);
+}
+
+//On génére un nombre aléatoire pour la démo
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+let deferredPrompt;
+const addBtn = document.querySelector('.add-button');
+addBtn.style.display = 'none';
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI to notify the user they can add to home screen
+    addBtn.style.display = 'block';
+
+    addBtn.addEventListener('click', (e) => {
+        // hide our user interface that shows our A2HS button
+        addBtn.style.display = 'none';
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+            } else {
+                console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+        });
+    });
+});
 /*
 let socket = new WebSocket(‘wss: url du serveur:numéro de port');
 socket.onopen = function(event) {
