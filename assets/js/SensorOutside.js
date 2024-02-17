@@ -5,6 +5,9 @@ class SensorOutside extends Sensor{
         super(thermometerFillElement, temperatureElement, messageElement, historic);
     }
 
+    updateTemperature(temperature) {
+        super.updateTemperature(temperature);
+    }
     getApiUrl() {
         return 'https://hothothot.dog/api/capteurs/exterieur';
     }

@@ -9,36 +9,25 @@ class History {
         this.chart = new Chart(this.chartContext, {
             type: 'line',
             data: {
-                labels: [], // This will be the timestamps
-                datasets: [{
-                    label: 'Temperature',
-                    data: [], // This will be the temperatures
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Temperature Inside',
+                        data: [],
+                        borderColor: 'rgb(255, 0, 0)',
+                        tension: 1
+                    },
+                    {
+                        label: 'Temperature Outside',
+                        data: [],
+                        borderColor: 'rgb(255, 99, 132)',
+                        tension: 0.1
+                    }
+                ]
             }
         });
-        this.fetchDataFromAPI();
-    }
-
-
-    fetchDataFromAPI() {
-        document.addEventListener('DOMContentLoaded', () => {
-            // Créer les instances des capteurs
-            let sensorInt = new SensorInside();
-            let sensorExt = new SensorOutside();
-
-            // Faire les appels aux deux capteurs
-            Promise.all([sensorInt.fetchDataFromAPI(), sensorExt.fetchDataFromAPI()])
-                .then(([dataInt, dataExt]) => {
-                    // Ajouter les températures à l'historique
-                    this.addTemperature(dataInt.Valeur, dataInt.Date);
-                    this.addTemperature(dataExt.Valeur, dataExt.Date);
-                })
-                .catch(error => {
-                    console.error('Error fetching temperature data:', error);
-                });
-        });
+        this.fetchDataFromInsideSensor();
+        this.fetchDataFromOutsideSensor();
     }
 
     addDataToJson(data) {
@@ -47,8 +36,41 @@ class History {
         localStorage.setItem('history', JSON.stringify(history));
     }
 
+    fetchDataFromInsideSensor() {
+        let sensorInt = new SensorInside(
+            document.getElementById('thermometerIntFillInt'),
+            document.getElementById('temperatureIntInt'),
+            document.getElementById('messageIntInt'),
+            this
+        );
+        sensorInt.fetchDataFromAPI()
+            .then(dataInt => {
+                let temperature = typeof dataInt.Valeur === 'object' ? dataInt.Valeur.temp : dataInt.Valeur;
+                this.addTemperature(temperature, dataInt.Date, 0);
+            })
+            .catch(error => {
+                console.error('Error fetching temperature data from inside sensor:', error);
+            });
+    }
 
-    addTemperature(temperature, timestamp) {
+    fetchDataFromOutsideSensor() {
+        let sensorExt = new SensorOutside(
+            document.getElementById('thermometerExtFillExt'),
+            document.getElementById('temperatureExtExt'),
+            document.getElementById('messageExtExt'),
+            this
+        );
+        sensorExt.fetchDataFromAPI()
+            .then(dataExt => {
+                let temperature = typeof dataExt.Valeur === 'object' ? dataExt.Valeur.temp : dataExt.Valeur;
+                this.addTemperature(temperature, dataExt.Date, 1);
+            })
+            .catch(error => {
+                console.error('Error fetching temperature data from outside sensor:', error);
+            });
+    }
+
+    addTemperature(temperature, timestamp, datasetIndex) {
         let tableRow = document.createElement('tr');
         let timeCell = document.createElement('td');
         let tempCell = document.createElement('td');
@@ -62,11 +84,9 @@ class History {
         this.historyElement.appendChild(tableRow);
 
         this.chart.data.labels.push(timestamp);
-        this.chart.data.datasets[0].data.push(temperature);
+        this.chart.data.datasets[datasetIndex].data.push(temperature);
         this.chart.update();
         this.addDataToJson({temperature, timestamp});
-
     }
 }
-
 export default History;

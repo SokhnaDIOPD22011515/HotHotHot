@@ -6,6 +6,10 @@ class SensorInside extends Sensor{
         this.cache = new Map();
     }
 
+    updateTemperature(temperature) {
+        super.updateTemperature(temperature);
+    }
+
     getApiUrl() {
         return 'https://hothothot.dog/api/capteurs/interieur';
     }
