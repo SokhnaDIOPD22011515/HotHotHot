@@ -109,6 +109,7 @@ nav ul li a button {
 
 #temp-int, #temp-ext{
     text-align: center;
+    margin-right: 4vh;
 }
 
 /*-------------------------------------THERMOMETERS------------------------------------*/
@@ -448,6 +449,7 @@ h1, .tostyle{
 
     .panel1{
         flex-direction: column;
+        flex-wrap: wrap;
     }
 }
 
