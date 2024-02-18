@@ -6,26 +6,27 @@ class History {
         this.historyElement = document.getElementById('history');
         this.chartElement = document.getElementById('temperatureChart');
         this.chartContext = this.chartElement.getContext('2d');
-        this.chart = new Chart(this.chartContext, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [
-                    {
-                        label: 'Temperature Interieur',
-                        data: [],
-                        borderColor: 'rgb(0,255,196)',
-                        tension: 1
-                    },
-                    {
-                        label: 'Temperature Exterieur',
-                        data: [],
-                        borderColor: 'rgb(133,255,99)',
-                        tension: 0.1
-                    }
-                ]
+ this.chart = new Chart(this.chartContext, {
+    type: 'line',
+    responsive: true, // Make the chart responsive
+    data: {
+        labels: [],
+        datasets: [
+            {
+                label: 'Temperature Interieur',
+                data: [],
+                borderColor: 'rgb(0,255,196)',
+                tension: 1
+            },
+            {
+                label: 'Temperature Exterieur',
+                data: [],
+                borderColor: 'rgb(133,255,99)',
+                tension: 0.1
             }
-        });
+        ]
+    }
+});
         this.fetchDataFromInsideSensor();
         this.fetchDataFromOutsideSensor();
     }

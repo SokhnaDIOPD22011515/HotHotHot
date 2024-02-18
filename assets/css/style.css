@@ -66,18 +66,20 @@ section {
     margin: auto;
 }
 
-.thermometer {
+.thermometer{
     height: 200px;
     width: 50px;
     background-color: #ccc;
     margin: auto;
     position: relative;
+    border-radius: 25px;
 }
 
 .thermometer-fill {
     position: absolute;
     bottom: 0;
     width: 100%;
+    border-radius: 25px;
 }
 
 /* style css pour le tab  */
@@ -102,7 +104,9 @@ section {
 [role="tabpanel"] {
     padding: 20px;
     border: 1px solid #ccc;
+    height: 600px; /* Adjust as needed */
 }
+
 
 
 .grid {
@@ -184,6 +188,14 @@ section {
 .red{
     background-color: red;
 }
+
+/*-------------------------------------GRAPH------------------------------------*/
+#graph {
+    width: 100%; /* Full width */
+    height: 50vh; /* Half of the viewport height */
+    margin: auto;
+}
+
 /*-------------------------------------HISTORIQUE------------------------------------*/
 #history {
     display: flex;
@@ -244,4 +256,25 @@ section {
     nav ul li a button {
         padding: 10px;
     }
+
+}
+
+/*-------------------------------------GRAPH------------------------------------*/
+@media only screen and (max-width: 767px) {
+    #graph {
+        height: 70vh; /* Increase the height on small screens */
+    }
+}
+
+/*-------------------------------------Adaptation ecran ------------------------------------*/
+
+
+/* Style for medium screens (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    /* Add your CSS styles for medium screens here */
+}
+
+/* Style for small screens (phones) */
+@media only screen and (max-width: 767px) {
+    /* Add your CSS styles for small screens here */
 }
