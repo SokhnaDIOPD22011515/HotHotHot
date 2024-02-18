@@ -25,11 +25,30 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     sensorInt.observable.subscribe(notificationInt);
     sensorInt.observable.notify(await sensorInt.fetchDataFromAPI());
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    const installButton = document.querySelector('.add-button');
+    installButton.style.display = 'block';
+
+    installButton.addEventListener('click', (e) => {
+        installButton.style.display = 'none';
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            } else {
+                console.log('User dismissed the install prompt');
+            }
+            deferredPrompt = null;
+        });
+    });
 });
-
-console.log("Test");
-
-
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
         .then(registration => {
@@ -39,27 +58,4 @@ if ('serviceWorker' in navigator) {
             console.error("Erreur lors de l'enregistrement du Service Worker : ", error);
         });
 }
-
-console.log("Test");
-
-/*
-let socket = new WebSocket(‘wss: url du serveur:numéro de port');
-socket.onopen = function(event) {
-    console.log("Connexion établie");
-
-    //On indique sur notre page web que la connexion est établie
-    let label = document.getElementById("status");
-    label.innerHTML = "Connexion établie";
-
-    //Envoi d'un message au serveur (obligatoire)
-    socket.send("coucou !");
-
-    // au retour...
-    socket.onmessage = function(event) {
-        var datas = document.getElementById("datas");
-        datas.innerHTML = event.data;
-    }
-}*/
-
-
-console.log("Test");
+});
