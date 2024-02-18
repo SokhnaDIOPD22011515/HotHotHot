@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Commit pour ratrapper l'erreur de Sosso">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Ajout de NotificationsExt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/NotificationsExt.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/NotificationsExt.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/NotificationsInt.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/NotificationsInt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/Observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Observable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/Sensor.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Sensor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/service-worker.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708287063937</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Ajout de NotificationsExt">
+      <option name="closed" value="true" />
+      <created>1708288349944</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708288349944</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +208,7 @@
     <MESSAGE value="erreur style enlever" />
     <MESSAGE value="Réglages de bugs" />
     <MESSAGE value="Commit pour ratrapper l'erreur de Sosso" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit pour ratrapper l'erreur de Sosso" />
+    <MESSAGE value="Ajout de NotificationsExt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de NotificationsExt" />
   </component>
 </project>
