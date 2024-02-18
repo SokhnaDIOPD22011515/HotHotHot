@@ -1,53 +1,50 @@
 {
-    "name": "HotHotHot",
     "short_name": "HHH",
-    "start_url": "/index.html",
-    "display": "standalone",
-    "background_color": "white",
+    "name": "HotHotHot",
     "description": "L'application qui vous donne la température en temps réel !",
-    "dir": "ltr",
-    "lang": "fr",
-    "orientation": "any",
-    "scope": "/",
-    "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "/favicon/android-chrome-192x192.png",
+            "src": "/assets/favicon/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/favicon/android-chrome-384x384.png",
+            "src": "/assets/favicon/android-chrome-384x384.png",
             "sizes": "384x384",
             "type": "image/png"
         },
         {
-            "src": "/favicon/apple-touch-icon.png",
+            "src": "/assets/favicon/apple-touch-icon.png",
             "sizes": "180x180",
             "type": "image/png"
         },
         {
-            "src": "/favicon/favicon.ico",
+            "src": "/assets/favicon/favicon.ico",
             "sizes": "48x48"
         },
         {
-            "src": "/favicon/favicon-16x16.png",
+            "src": "/assets/favicon/favicon-16x16.png",
             "sizes": "16x16",
             "type": "image/png"
         },
         {
-            "src": "/favicon/favicon-32x32.png",
+            "src": "/assets/favicon/favicon-32x32.png",
             "sizes": "32x32",
             "type": "image/png"
         },
         {
-            "src": "/favicon/stile-150x150.png",
+            "src": "/assets/favicon/mstile-150x150.png",
             "sizes": "150x150",
             "type": "image/png"
         },
         {
-            "src": "/favicon/safari-pinned-tab.svg",
+            "src": "/assets/favicon/safari-pinned-tab.svg",
             "sizes": "667x667"
         }
-    ]
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "scope": "/"
 }
