@@ -7,3 +7,8 @@ function toggleNav() {
     hamburgerButton.classList.toggle("active")
     navigation.classList.toggle("active")
 }
+
+const image = document.getElementById('user');
+image.addEventListener('click', function() {
+    alert('Bonjour cher utilisateur !');
+});
