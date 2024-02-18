@@ -1,5 +1,5 @@
 import Sensor from "./Sensor.js";
-import Observable from "./Observable";
+import Observable from "./Observable.js";
 
 class SensorInside extends Sensor{
     constructor(thermometerFillElement, temperatureElement, messageElement, historic) {
@@ -31,5 +31,3 @@ class SensorInside extends Sensor{
     }
 }
 export default SensorInside;
-
-

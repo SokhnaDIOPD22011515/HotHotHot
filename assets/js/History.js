@@ -39,11 +39,11 @@ class History {
 
     fetchDataFromInsideSensor() {
         let sensorInt = new SensorInside(
-            document.getElementById('thermometerIntFillInt'),
-            document.getElementById('temperatureIntInt'),
-            document.getElementById('messageIntInt'),
-            this
-        );
+    document.getElementById('thermometerIntFillInt'),
+    document.getElementById('temperatureIntInt'),
+    document.getElementById('messageIntInt'),
+    this
+);
         sensorInt.fetchDataFromAPI()
             .then(dataInt => {
                 let temperature = typeof dataInt.Valeur === 'object' ? dataInt.Valeur.temp : dataInt.Valeur;
@@ -56,11 +56,11 @@ class History {
 
     fetchDataFromOutsideSensor() {
         let sensorExt = new SensorOutside(
-            document.getElementById('thermometerExtFillExt'),
-            document.getElementById('temperatureExtExt'),
-            document.getElementById('messageExtExt'),
-            this
-        );
+    document.getElementById('thermometerExtFillExt'),
+    document.getElementById('temperatureExtExt'),
+    document.getElementById('messageExtExt'),
+    this
+);
         sensorExt.fetchDataFromAPI()
             .then(dataExt => {
                 let temperature = typeof dataExt.Valeur === 'object' ? dataExt.Valeur.temp : dataExt.Valeur;

@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="reglage de probleme lié a l historique et aussi le graphique">
-      <change afterPath="$PROJECT_DIR$/assets/js/NotificationExt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/History.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/History.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/NotificationsInt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/Observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Observable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/SensorInside.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/SensorInside.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/SensorOutside.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/SensorOutside.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/service-worker.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

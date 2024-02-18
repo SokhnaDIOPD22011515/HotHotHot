@@ -2,14 +2,10 @@ import Tab from "./Tab.js";
 import SensorInside from "./SensorInside.js";
 import SensorOutside from "./SensorOutside.js";
 import History from "./History.js";
-import NotificationsInt from "./NotificationsInt";
+import NotificationsInt from "./NotificationsInt.js";
 
-console.log("Test");
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    console.log("Test");
-
+document.addEventListener('DOMContentLoaded', async () => {
     let history = new History();
     let tab = new Tab();
     let notificationInt = new NotificationsInt();
@@ -28,11 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     tab.init();
 
-    console.log("Test");
-
 
     sensorInt.observable.subscribe(notificationInt);
-    sensorInt.observable.notify(sensorInt.fetchDataFromAPI());
+    sensorInt.observable.notify(await sensorInt.fetchDataFromAPI());
 });
 
 console.log("Test");

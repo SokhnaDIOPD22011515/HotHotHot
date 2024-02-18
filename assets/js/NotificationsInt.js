@@ -1,10 +1,10 @@
 class NotificationsInt {
     constructor() {
-        this.thresholdMinInt = null; //la valeur min du seuil de la température  intérieur
-        this.thresholdMaxInt = null; //la valeur max du seuil de la température intérieur
-        this.dailyMinInt = null; //la valeur min journalière de la température intérieur
-        this.dailyMaxInt = null; //la valeur max journalière de la température intérieur
-        this.alertInt = this.detectAlertsInt(data);
+        this.thresholdMinInt = null;
+        this.thresholdMaxInt = null;
+        this.dailyMinInt = null;
+        this.dailyMaxInt = null;
+        this.alertInt = null;
         this.messageZoneInt = document.getElementById("messageInt");
         this.thermometerFillInt = document.getElementById("thermometerFillExt");
 
@@ -80,6 +80,7 @@ class NotificationsInt {
     }
 
     update(data){
+        this.alertInt = this.detectAlertsInt(data);
         this.displayMessageInt(this.alertInt);
         this.displayNotificationInt(this.alertInt);
     }
