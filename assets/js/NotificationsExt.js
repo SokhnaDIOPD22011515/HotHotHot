@@ -35,32 +35,30 @@ class NotificationsExt {
         }
     }
 
-    detectAlertsExt(averageTempInt) {
-        let type = null;
-        let description = null;
-        let color = null;
-
-        if (averageTempInt < 0) {
-            description = 'Banquise en vue !';
-            type = 'alert-info';
-            color = 'blue';
-        }
-        else if (averageTempInt < 35) {
-            description = '';
-            type = "alert-success";
-            color = 'green';
-        }
-        else if (averageTempInt >= 35) {
-            description = 'Hot Hot Hot !';
-            type = "alert-warning";
-            color = 'red';
-        }
-
-        return {
-            type: type,
-            description: description,
-            color: color,
+    detectAlertsExt(averageTempExt) {
+        let alert  = {
+            type: null,
+            description: null,
+            color: null,
         };
+
+        if (averageTempExt < 0) {
+            alert.description = 'Banquise en vue !';
+            alert.type = 'alert-info';
+            alert.color = 'blue';
+        }
+        else if (averageTempExt < 35) {
+            alert.description = '';
+            alert.type = "alert-success";
+            alert.color = 'green';
+        }
+        else if (averageTempExt >= 35) {
+            alert.description = 'Hot Hot Hot !';
+            alert.type = "alert-warning";
+            alert.color = 'red';
+        }
+
+        return alert;
     }
     displayMessageExt(alert) {
         this.thermometerFillExt.classList.add(alert.color);
@@ -70,10 +68,12 @@ class NotificationsExt {
     displayNotificationExt(alert) {
         if (this.permission) {
             const options = {
-                body: 'Termomètre Extérieur : ' + alert.description,
+                body: 'Etat Actuel Capteur Extérieur : ' + alert.description,
             };
 
-            const notification = new Notification(options);
+            const notification = new Notification("La température du termomètre extérieur a changé", {
+                body: options.body
+            });
         }
     }
 

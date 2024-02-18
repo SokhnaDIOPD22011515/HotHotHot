@@ -25,23 +25,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     tab.init();
 
 
-    notificationExt
+    let dataExt = await sensorExt.fetchDataFromAPI();
+    let valueSensorExt = dataExt.capteurs[0].Valeur;
+    sensorExt.observable.subscribe(notificationExt);
+    sensorExt.observable.notify(valueSensorExt);
+    console.log("Valeur du capteur extérieur :", valueSensorExt);
+    console.log(sensorExt.observable.observers);
 
-
-
-
-
-
-
-
-    let data = await sensorInt.fetchDataFromAPI();
-    let valeurCapteurInterieur = data.capteurs[0].Valeur;
-    console.log("Valeur du capteur intérieur :", valeurCapteurInterieur);
-
-
+    let dataInt = await sensorInt.fetchDataFromAPI();
+    let valueSensorInt = dataInt.capteurs[0].Valeur;
     sensorInt.observable.subscribe(notificationInt);
+    sensorInt.observable.notify(valueSensorInt);
+    console.log("Valeur du capteur intérieur :", valueSensorInt);
     console.log(sensorInt.observable.observers);
-    sensorInt.observable.notify(valeurCapteurInterieur);
 
 let deferredPrompt;
 
