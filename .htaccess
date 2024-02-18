@@ -1,1 +1,2 @@
 AddType application/manifest+json .webmanifest
+AddType text/javascript .js
