@@ -1,8 +1,8 @@
 class Sensor {
-    constructor(thermometerFillElement, temperatureElement, messageElement, historic) {
-        this.thermometerFillElement = thermometerFillElement;
-        this.temperatureElement = temperatureElement;
-        this.messageElement = messageElement;
+    constructor(thermometerFillElementId, temperatureElement, messageElement, historic) {
+        this.thermometerFillElementId = thermometerFillElementId;
+        this.temperatureElement = document.getElementById(temperatureElement);
+        this.messageElement = document.getElementById(messageElement);
         this.historic = historic;
         this.fetchData();
     }
@@ -34,15 +34,17 @@ class Sensor {
     }
 
     updateTemperature(temperature) {
-        let tempValue = typeof temperature === 'object' ? temperature.temp : temperature;
-        let percentage = (tempValue + 10) / 50 * 100;
-        this.thermometerFillElement.style.height = percentage + '%';
-        this.temperatureElement.textContent = tempValue + '°C';
-        let datasetIndex = this.thermometerFillElement.id.includes('Int') ? 0 : 1;
-        this.historic.addTemperature(tempValue, new Date().toLocaleTimeString('fr-FR'), datasetIndex);
+        this.thermometerFillElement = document.getElementById(this.thermometerFillElementId);
+        if (this.thermometerFillElement) {
+            let tempValue = typeof temperature === 'object' ? temperature.temp : temperature;
+            let percentage = (tempValue + 10) / 50 * 100;
+            this.thermometerFillElement.style.height = percentage + '%';
+            this.temperatureElement.textContent = tempValue + '°C';
+            let datasetIndex = this.thermometerFillElementId.includes('Int') ? 0 : 1;
+            this.historic.addTemperature(tempValue, new Date().toLocaleTimeString('fr-FR'), datasetIndex);
 
-        this.thermometerFillElement.classList.remove('blue', 'green', 'orange', 'red');
-        this.messageElement.classList.remove('alert-info', 'alert-success', 'alert-warning', 'alert-danger');
+            this.thermometerFillElement.classList.remove('blue', 'green', 'orange', 'red');
+            this.messageElement.classList.remove('alert-info', 'alert-success', 'alert-warning', 'alert-danger');
         if (tempValue < 0) {
             this.thermometerFillElement.classList.add('blue');
             this.messageElement.classList.add('alert-info');
@@ -62,6 +64,9 @@ class Sensor {
             this.thermometerFillElement.classList.add('red');
             this.messageElement.classList.add('alert-warning');
             this.messageElement.textContent = 'Appelez les pompiers ou arrêtez votre barbecue !';
+        } else {
+            console.error('Element with id ' + this.thermometerFillElementId + ' not found');
+        }
         }
     }
 }
