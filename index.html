@@ -25,6 +25,8 @@
         <ul>
             <li><a href="">Accueil</a></li>
             <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="user_info.html">User Info</a></li>
+            <li><a><img id="user" class="user" src="./assets/img/anonymous.png"></a></li>
             <li><a><button id="notifications">S'abonner aux notifications</button></a></li>
             <li><a><button class="add-button">Installer</button></a></li>
         </ul>
@@ -36,44 +38,55 @@
     </label>
 </header>
 
-<section>
-    <div role="tablist">
-        <button role="tab" id="tab1" aria-selected="true" aria-controls="panel1">Capteurs</button>
-        <button role="tab" id="tab2" aria-controls="panel2">Historique</button>
-    </div>
-
-    <div id="panel1" role="tabpanel" aria-labelledby="tab1">
-        <div id="temp-int">
-            <h1>Température Interieur</h1>
-            <div class="thermometer">
-                <div class="thermometer-fill" id="thermometerFillInt" aria-live="polite"></div>
-            </div>
-            <p id="temperatureIntInt" aria-live="polite">0°C</p>
-            <p id="messageInt" role="alert"></p>
+<section class="container">
+    <div>
+        <div role="tablist">
+            <button role="tab" id="tab1" aria-selected="true" aria-controls="panel1">Capteurs</button>
+            <button role="tab" id="tab2" aria-controls="panel2">Historique</button>
         </div>
-        <div id="temp-ext">
-            <h1>Température Exterieur</h1>
-            <div class="thermometer">
-                <div class="thermometer-fill" id="thermometerFillExt" aria-live="polite"></div>
+
+        <div id="panel1" role="tabpanel" aria-labelledby="tab1">
+            <div id="temp-int">
+                <h1>Température Interieur</h1>
+                <div class="temp-container">
+                    <p>Min : 0°C</p>
+                    <p>Max : 0°C</p>
+                </div>
+                <div class="thermometer">
+                    <div class="thermometer-fill" id="thermometerFillInt" aria-live="polite"></div>
+                </div>
+                <p id="temperatureIntInt" aria-live="polite">0°C</p>
+                <p id="messageInt" role="alert"></p>
             </div>
-            <p id="temperatureExtExt" aria-live="polite">0°C</p>
-            <p id="messageExt" role="alert"></p>
+            <div id="temp-ext">
+                <h1>Température Exterieur</h1>
+                <div class="temp-container">
+                    <p>Min : 0°C</p>
+                    <p>Max : 0°C</p>
+                </div>
+                <div class="thermometer">
+                    <div class="thermometer-fill" id="thermometerFillExt" aria-live="polite"></div>
+                </div>
+                <p id="temperatureExtExt" aria-live="polite">0°C</p>
+                <p id="messageExt" role="alert"></p>
+            </div>
+        </div>
+
+        <div id="graph" class="grid"  aria-labelledby="tab1">
+            <canvas id="temperatureChart"></canvas>
+            <canvas id="temperatureIntChart"></canvas>
+        </div>
+
+        <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
+            <h1>Historique des températures</h1>
+            <div id="history">
+                <h2 class="tostyle">Température Intérieure</h2>
+                <ul id="history-interior" aria-live="polite"></ul>
+                <h2 class="tostyle">Température Extérieure</h2>
+                <ul id="history-exterior" aria-live="polite"></ul>
+            </div>
         </div>
     </div>
-
-    <div id="graph" class="grid"  aria-labelledby="tab1">
-        <canvas id="temperatureChart"></canvas>
-        <canvas id="temperatureIntChart"></canvas>
-    </div>
-   <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
-    <h1>Historique des températures</h1>
-    <div id="history">
-        <h2 class="tostyle">Température Intérieure</h2>
-        <ul id="history-interior" aria-live="polite"></ul>
-        <h2 class="tostyle">Température Extérieure</h2>
-        <ul id="history-exterior" aria-live="polite"></ul>
-    </div>
-</div>
 </section>
 <script type="module" src="assets/js/Main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

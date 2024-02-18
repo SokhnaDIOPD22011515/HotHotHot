@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+
+    <link rel="manifest" crossorigin="use-credentials" href="/manifest.webmanifest">
+
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<header>
+    <label class="logo"><h2>itsHotHotHot !</h2></label>
+    <input type="checkbox" id="nav_check" hidden>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="">User Info</a></li>
+            <li><a><img id="user" class="user" src="./assets/img/anonymous.png"></a></li>
+            <li><a><button id="notifications">S'abonner aux notifications</button></a></li>
+            <li><a><button class="add-button">Installer</button></a></li>
+        </ul>
+    </nav>
+    <label for="nav_check" aria-label="toggle curtain navigation" class="hamburger">
+        <div class="line l1"></div>
+        <div class="line l2"></div>
+        <div class="line l3"></div>
+    </label>
+</header>
+
+<div>
+    <h2 class="tostyle">Bonjour cher utilisateur ! Ravi de vous revoir !</h2>
+    <div class="member-presentation">
+        <div class="member">
+            <img class="dev-image" src="./assets/img/anonymous.png" alt="image développeur web"/>
+            <h3 class="member-name">User</h3>
+            <p class="member-paragraph">Age : 22 ans <br> Genre : Masculin <br> Ville  : Aix-en-Provence</p>
+        </div>
+    </div>
+</div>
+<script type="module" src="assets/js/Main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/websocket.js"></script>
+<script src="assets/js/navbar.js"></script>
+</body>
+</html>
