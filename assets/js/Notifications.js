@@ -1,4 +1,4 @@
-class Notification{
+class Notifications{
     constructor() {
         this.thresholdMinInt = null; //la valeur min du seuil de la température  intérieur
         this.thresholdMaxInt = null; //la valeur max du seuil de la température intérieur
@@ -17,7 +17,26 @@ class Notification{
         this.averageTempExt = null; //la valeur actuelle de la température extérieur
         this.messageZoneExt = document.getElementById("messageExt");
         this.thermometerFillExt = document.getElementById("thermometerFillExt");
+
+        this.permissionButton = document.getElementById("notifications");
+        this.permissionButton.addEventListener("click", this.permission);
     }
+    permission() {
+        if (Notification.permission !== 'granted') {
+            Notification.requestPermission().then(function (result) {
+                if (result === 'granted') {
+                    return true;
+                } else if (result === 'denied') {
+                    return false;
+                } else {
+                    return false;
+                }
+            });
+        } else {
+            return true;
+        }
+    }
+
 
     detectAlertsInt(averageTempInt) {
         let type = null;
@@ -61,6 +80,15 @@ class Notification{
         this.messageZoneInt.classList.add(alert.type);
         this.messageZoneInt.textContent = alert.description;
     }
+    displayNotificationInt(alert) {
+        if (this.permission) {
+            const options = {
+                body: 'Termomètre Intérieur : ' + alert.description,
+            };
+
+            const notification = new Notification(options);
+        }
+    }
 
     detectAlertsExt(averageTempInt) {
         let type = null;
@@ -94,45 +122,24 @@ class Notification{
         this.messageZoneExt.classList.add(alert.type);
         this.messageZoneExt.textContent = alert.description;
     }
-
-    update(){
-        this.displayMessageInt(this.alertInt);
-        this.displayMessageExt(this.alertExt);
-    }
-
-
-    displayNotification(alerte) {
-        if (Notification.permission === 'granted') {
+    displayNotificationExt(alert) {
+        if (this.permission) {
             const options = {
-                body: alerte.description,
+                body: 'Termomètre Extérieur : ' + alert.description,
             };
 
-            const notification = new Notification(alerte.type, options);
+            const notification = new Notification(options);
         }
     }
 
+    update(){
+        this.displayMessageInt(this.alertInt);
+        this.displayNotificationInt(this.alertInt);
 
-
-
-// // Supposons que minCapteurExt, maxCapteurExt, minCapteurInt, maxCapteurInt sont les valeurs calculées
-// document.getElementById('minCapteurExt').innerText = minCapteurExt;
-// document.getElementById('maxCapteurExt').innerText = maxCapteurExt;
-//
-// document.getElementById('minCapteurInt').innerText = minCapteurInt;
-// document.getElementById('maxCapteurInt').innerText = maxCapteurInt;
-//
-// // Afficher la boîte de dialogue pour chaque alerte détectée
-// afficherBoiteDialogue(alerteExt);
-// afficherBoiteDialogue(alerteInt);
-//
-// afficherNotification(alerteExt);
-// afficherNotification(alerteInt);
-
-
-
-
-
+        this.displayMessageExt(this.alertExt);
+        this.displayNotificationExt(this.alertExt);
+    }
 
 }
 
-export default Notification;
+export default Notifications;

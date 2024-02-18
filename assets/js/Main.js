@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let tab = new Tab();
 
     let sensorInt = new SensorInside(
-        document.getElementById('thermometerIntFillInt'),
+        document.getElementById('thermometerFillInt'),
         document.getElementById('temperatureIntInt'),
-        document.getElementById('messageIntInt'),
+        document.getElementById('messageInt'),
         history
     );
     let sensorExt = new SensorOutside(
-        document.getElementById('thermometerExtFillExt'),
+        document.getElementById('thermometerFillExt'),
         document.getElementById('temperatureExtExt'),
-        document.getElementById('messageExtExt'),
+        document.getElementById('messageExt'),
         history
     );
     tab.init();
