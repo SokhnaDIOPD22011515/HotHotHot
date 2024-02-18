@@ -453,6 +453,21 @@ h1, .tostyle{
     }
 }
 
+@media only screen and (max-width: 600px) {
+    /* Sélectionnez l'élément du thermomètre et ajustez sa position */
+    .thermometer {
+        position: relative;
+        z-index: 1; /* Assurez-vous que le thermomètre est au-dessus des autres éléments */
+        margin-top: 10px; /* Ajustez la marge en fonction de vos besoins */
+    }
+
+    /* Sélectionnez l'élément des onglets et ajustez sa position */
+    [role="tablist"] {
+        position: relative;
+        z-index: 0; /* Assurez-vous que les onglets sont en dessous du thermomètre */
+    }
+}
+
 
 @media screen and (max-width: 768px) {
     header{

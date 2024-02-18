@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Commit pour ratrapper l'erreur de Sosso">
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/service-worker.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708290467137</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Commit pour ratrapper l'erreur de Sosso">
+      <option name="closed" value="true" />
+      <created>1708292205498</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1708292205498</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
