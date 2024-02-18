@@ -269,6 +269,11 @@ section {
 /*-------------------------------------Adaptation ecran ------------------------------------*/
 
 
+/* Style for large screens (desktops, laptops) */
+@media only screen and (min-width: 1200px) {
+    /* Add your CSS styles for large screens here */
+}
+
 /* Style for medium screens (tablets) */
 @media only screen and (min-width: 768px) and (max-width: 1199px) {
     /* Add your CSS styles for medium screens here */
@@ -277,4 +282,42 @@ section {
 /* Style for small screens (phones) */
 @media only screen and (max-width: 767px) {
     /* Add your CSS styles for small screens here */
+}
+
+/*-------------------------------------Hitstorique------------------------------------*/
+
+/* Style for large screens (desktops, laptops) */
+@media only screen and (min-width: 1200px) {
+    #history {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #history-interior, #history-exterior {
+        width: 45%;
+    }
+}
+
+/* Style for medium screens (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    #history {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #history-interior, #history-exterior {
+        width: 100%;
+    }
+}
+
+/* Style for small screens (phones) */
+@media only screen and (max-width: 1000px) {
+    #history {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #history-interior, #history-exterior {
+        width: 100%;
+    }
 }
