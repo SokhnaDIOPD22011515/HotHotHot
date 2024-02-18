@@ -25,13 +25,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     tab.init();
 
 
+
+    let data = await sensorInt.fetchDataFromAPI();
+    let valeurCapteurInterieur = data.capteurs[0].Valeur;
+    console.log("Valeur du capteur intérieur :", valeurCapteurInterieur);
+
+
+
+
+
+
+
     sensorInt.observable.subscribe(notificationInt);
-    sensorInt.observable.notify(await sensorInt.fetchDataFromAPI());
+    console.log(sensorInt.observable.observers);
+    sensorInt.observable.notify(valeurCapteurInterieur);
 });
-
-console.log("Test");
-
-
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
         .then(registration => {
@@ -42,7 +50,6 @@ if ('serviceWorker' in navigator) {
         });
 }
 
-console.log("Test");
 
 /*
 let socket = new WebSocket(‘wss: url du serveur:numéro de port');
@@ -64,4 +71,3 @@ socket.onopen = function(event) {
 }*/
 
 
-console.log("Test");

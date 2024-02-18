@@ -13,6 +13,7 @@ class Observable {
     }
 
     notify(data) {
+        console.log("Notify à tous les observers")
         this.observers.forEach((observer) => observer.update(data));
     }
 

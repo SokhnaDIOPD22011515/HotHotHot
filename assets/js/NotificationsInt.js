@@ -6,81 +6,115 @@ class NotificationsInt {
         this.dailyMaxInt = null;
         this.alertInt = null;
         this.messageZoneInt = document.getElementById("messageInt");
-        this.thermometerFillInt = document.getElementById("thermometerFillExt");
+        this.thermometerFillInt = document.getElementById("messageInt");
 
         this.permissionButton = document.getElementById("notifications");
         this.permissionButton.addEventListener("click", this.permission);
     }
     permission() {
+        console.log("Je test la permission");
         if (Notification.permission !== 'granted') {
+            console.log("La permission est non pour l'instant");
             Notification.requestPermission().then(function (result) {
                 if (result === 'granted') {
+                    console.log("Là c'est bon");
                     return true;
                 } else if (result === 'denied') {
+                    console.log("Là c'est pas bon");
                     return false;
                 } else {
+                    console.log("Là c'est pas bon");
                     return false;
                 }
             });
         } else {
+            console.log("Là c'est bon");
             return true;
         }
     }
 
     detectAlertsInt(averageTempInt) {
-        let type = null;
-        let description = null;
-        let color = null;
+        console.log("Je rentre dans la detection avec  la valeur à : " + averageTempInt)
+
+        let alert  = {
+            type: null,
+            description: null,
+            color: null,
+        };
+
+        console.log("l'alerte a pour valeur : " + alert.description + alert.type)
+
 
         if (averageTempInt < 0) {
-            description = 'Canalisations gelées, appelez SOS plombier et mettez un bonnet !';
-            type = 'alert-info';
-            color = 'blue';
+            console.log("la valeur est en dessous de 0")
+            alert.description= 'Canalisations gelées, appelez SOS plombier et mettez un bonnet !';
+            alert.type = 'alert-info';
+            alert.color = 'blue';
         }
         else if (averageTempInt <= 12) {
-            description = 'Montez le chauffage ou mettez un gros pull !';
-            type = "alert-success";
-            color = 'green';
+            console.log("la valeur est en dessous de 12")
+            alert.description = 'Montez le chauffage ou mettez un gros pull !';
+            alert.type = "alert-success";
+            alert.color = 'green';
         }
         else if (averageTempInt < 22) {
-            description = '';
-            type = "alert-success";
-            color = 'green';
+            console.log("la valeur est en dessous de 22")
+            alert.description = 'Tout va bien';
+            alert.type = "alert-success";
+            alert.color = 'green';
+
+            console.log("l'alerte a pour valeur : " + alert.type)
+
         }
         else if (averageTempInt >= 22) {
-            description = 'Baissez le chauffage !';
-            type = 'alert-warning';
-            color = 'orange'
+            console.log("la valeur est au dessus de 22")
+            alert.description = 'Baissez le chauffage !';
+            alert.type = 'alert-warning';
+            alert.color = 'orange'
         }
         else if (averageTempInt >= 50) {
-            description = 'Appelez les pompiers ou arrêtez votre barbecue !';
-            type = "alert-warning";
-            color = 'red';
+            console.log("la valeur est au dessus de 50")
+            alert.description = 'Appelez les pompiers ou arrêtez votre barbecue !';
+            alert.type = "alert-warning";
+            alert.color = 'red';
         }
-
-        return {
-            type: type,
-            description: description,
-            color: color,
-        };
+        console.log("l'alerte a pour valeur : " + alert.type)
+        console.log(alert.type);
+        return alert;
     }
     displayMessageInt(alert) {
+        console.log("Le display le message avec : " + alert.type + "et pour description" + alert.description)
         this.thermometerFillInt.classList.add(alert.color);
         this.messageZoneInt.classList.add(alert.type);
         this.messageZoneInt.textContent = alert.description;
     }
     displayNotificationInt(alert) {
+        console.log("Je display la notif avec : " + alert.type + "et pour description" + alert.description)
         if (this.permission) {
+            console.log("La permission est ok")
             const options = {
-                body: 'Termomètre Intérieur : ' + alert.description,
+                body: 'Etat Actuel : ' + alert.description,
             };
+            console.log(options.body)
 
-            const notification = new Notification(options);
+            const notification = new Notification("La température du termomètre intérieur a changé", {
+                body: options.body
+            });
+            console.log("Je lance la notif avec : " + alert.type)
+            console.log(notification)
+
+
+
+
+
         }
     }
 
     update(data){
+        console.log("J'update");
         this.alertInt = this.detectAlertsInt(data);
+        console.log(data);
+        console.log("L'alerte de la notif : " + this.alertInt.description);
         this.displayMessageInt(this.alertInt);
         this.displayNotificationInt(this.alertInt);
     }
