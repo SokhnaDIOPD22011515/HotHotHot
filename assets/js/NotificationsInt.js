@@ -105,7 +105,7 @@ class NotificationsInt {
         if (this.permission) {
             console.log("La permission est ok")
             const options = {
-                body: 'Etat Actuel : ' + alert.description,
+                body: 'Etat Actuel Capteur Intérieur : ' + alert.description,
             };
             console.log(options.body)
 
@@ -114,10 +114,6 @@ class NotificationsInt {
             });
             console.log("Je lance la notif avec : " + alert.type)
             console.log(notification)
-
-
-
-
 
         }
     }

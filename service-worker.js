@@ -11,7 +11,7 @@ self.addEventListener('install', function(evt) {
             "./service-worker.js",
             "./index.html",
             "./offline.html",
-            "./app.webmanifest",
+            "./manifest.webmanifest",
         ]);
     }));
 });
