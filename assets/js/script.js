@@ -69,8 +69,3 @@ function afficherNotification(alerte) {
         const notification = new Notification(alerte.type, options);
     }
 }
-
-document.addEventListener('notificationclick', (event) => {
-    // Logique à exécuter lors du clic sur la notification
-    // Par exemple, rediriger l'utilisateur vers une page spécifique
-});
