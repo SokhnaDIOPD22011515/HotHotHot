@@ -2,9 +2,10 @@ body {
     font-family: Arial, sans-serif;
     text-decoration: none;
     list-style: none;
-    overflow: hidden;
     margin: 0;
     padding: 0;
+    /* overflow: hidden; */
+    overflow-x: hidden;
 
 }
 *, *:before, *:after {
@@ -103,17 +104,18 @@ nav ul li a button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 #temp-int, #temp-ext{
     text-align: center;
+    margin-right: 4vh;
 }
 
 /*-------------------------------------THERMOMETERS------------------------------------*/
 
 section {
-    width: 80%;
+    width: 99%;
     margin: 1vh;
 }
 
@@ -156,14 +158,6 @@ section {
     padding: 20px;
     border: 1px solid #ccc;
     height: 600px; /* Adjust as needed */
-}
-
-
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
 }
 
 /* style css pour le messageInt du int  */
@@ -390,7 +384,7 @@ h1, .tostyle{
 /*-------------------------------------MEDIA QUERIES------------------------------------*/
 
 
-@media only screen and (min-width : 380px) and (max-width : 1050px){
+@media only screen and (min-width : 350px) and (max-width : 1050px){
     header{
         padding: 0 0;
         background-color: white;
@@ -399,10 +393,11 @@ h1, .tostyle{
     .hamburger{
         display: block;
         top: 13px;
+        margin-right: 2vw;
     }
     header nav{
         position: absolute;
-        width: 95%;
+        width: 100%;
         left: -100%;
         top: 80px;
         height: 100vh;
@@ -432,7 +427,7 @@ h1, .tostyle{
 
     header nav ul li a{
         color:white;
-        margin: 5px 0 ;
+        margin: 1px 0 ;
     }
 
     header nav.active {
@@ -440,6 +435,7 @@ h1, .tostyle{
     }
     label.logo{
         color: #2a2a2a;
+        margin-left: 2vw;
     }
 
     nav ul li a button{
@@ -448,7 +444,12 @@ h1, .tostyle{
     }
 
     section{
-        width: 95%;
+        width: 98%;
+    }
+
+    .panel1{
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
 
@@ -459,7 +460,7 @@ h1, .tostyle{
     }
     nav ul li {
         display: block;
-        margin: 10px 0;
+        margin: 5px 0;
     }
 
     nav ul li:last-child {
@@ -486,8 +487,10 @@ h1, .tostyle{
         font-size: 10vw;
         color: #2a2a2a;
     }
+}
 
-    #panel1{
+@media only screen and (max-width: 600px) {
+    #panel1 {
         flex-direction: column;
     }
 }
@@ -554,3 +557,4 @@ h1, .tostyle{
         width: 100%;
     }
 }
+

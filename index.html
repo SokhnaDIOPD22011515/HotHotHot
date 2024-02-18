@@ -23,8 +23,8 @@
     <input type="checkbox" id="nav_check" hidden>
     <nav>
         <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="">Documentation</a></li>
+            <li><a href="">Accueil</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
             <li><a><button id="notifications">S'abonner aux notifications</button></a></li>
             <li><a><button class="add-button">Installer</button></a></li>
         </ul>
@@ -43,26 +43,24 @@
     </div>
 
     <div id="panel1" role="tabpanel" aria-labelledby="tab1">
-        <div class="grid">
-            <div id="temp-int">
-                <h1>Température Interieur</h1>
-                <div class="thermometer">
-                    <div class="thermometer-fill" id="thermometerFillInt" aria-live="polite"></div>
-                </div>
-                <p id="temperatureIntInt" aria-live="polite">20°C</p>
-                <p id="messageInt" role="alert"></p>
+        <div id="temp-int">
+            <h1>Température Interieur</h1>
+            <div class="thermometer">
+                <div class="thermometer-fill" id="thermometerFillInt" aria-live="polite"></div>
             </div>
-            <div id="temp-ext">
-                <h1>Température Exterieur</h1>
-                <div class="thermometer">
-                    <div class="thermometer-fill" id="thermometerFillExt" aria-live="polite"></div>
-                </div>
-                <p id="temperatureExtExt" aria-live="polite"></p>
-                <p id="messageExt" role="alert"></p>
-            </div>
+            <p id="temperatureIntInt" aria-live="polite">0°C</p>
+            <p id="messageInt" role="alert"></p>
         </div>
-
+        <div id="temp-ext">
+            <h1>Température Exterieur</h1>
+            <div class="thermometer">
+                <div class="thermometer-fill" id="thermometerFillExt" aria-live="polite"></div>
+            </div>
+            <p id="temperatureExtExt" aria-live="polite">0°C</p>
+            <p id="messageExt" role="alert"></p>
+        </div>
     </div>
+
     <div id="graph" class="grid"  aria-labelledby="tab1">
         <canvas id="temperatureChart"></canvas>
         <canvas id="temperatureIntChart"></canvas>

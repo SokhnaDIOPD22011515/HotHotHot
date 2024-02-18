@@ -1,60 +1,63 @@
-let CACHE = 'mysweetpwa1';
+// Nom du cache
+const CACHE_NAME = 'my-cache';
 
-self.addEventListener('install', function(evt) {
-    evt.waitUntil(caches.open(CACHE).then(function (cache) {
-        cache.addAll([
-            "./", // Homepage
-            "./documentation.html", // Documentation page
-            "./assets/js/*",
-            "./assets/favicon/*",
-            "./assets/css/*",
-            "./service-worker.js",
-            "./index.html",
-            "./offline.html",
-            "./manifest.webmanifest",
-        ]);
-    }));
-});
+// Fichiers à mettre en cache
+const urlsToCache = [
+    '/',
+    '/index.html',
+    '/style.css',
+    '/assets/js/Main.js',
+    '/manifest.webmanifest',
+    '/assets/favicon/favicon-32x32.png',
+    '/assets/favicon/favicon-16x16.png',
+    '/assets/favicon/apple-touch-icon.png',
+    // Assurez-vous que tous les fichiers js et css sont accessibles
+    // et que les chemins sont corrects
+];
 
-self.addEventListener('fetch', function(evt) {
-    evt.respondWith(fromCache(evt.request));
-    evt.waitUntil(
-        update(evt.request)
-            .then(refresh)
+// Installation du Service Worker
+self.addEventListener('install', event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => {
+                return cache.addAll(urlsToCache)
+                    .catch(error => {
+                        console.error('Failed to add files to cache:', error);
+                    });
+            })
+            .catch(error => {
+                console.error('Failed to open cache:', error);
+            })
     );
 });
 
-function fromCache(request) {
-    return caches.open(CACHE).then(function (cache) {
-        return cache.match(request).then(function (response) {
-            if (response) {
-                return response;
-            } else if (request.headers.get('accept').includes('text/html')) {
-                return caches.match('./offline.html');
+// Activation du Service Worker
+self.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log('Ancien cache supprimé', cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
+    );
+});
+
+// Récupération des requêtes pour les correspondances du cache
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                // Cache hit - return response
+                if (response) {
+                    return response;
+                }
+                return fetch(event.request);
             }
-        });
-    });
-}
-
-function update(request) {
-    return caches.open(CACHE).then(function (cache) {
-        return fetch(request).then(function (response) {
-            return cache.put(request, response.clone()).then(function () {
-                return response;
-            });
-        });
-    });
-}
-
-function refresh(response) {
-    return self.clients.matchAll().then(function (clients) {
-        clients.forEach(function (client) {
-            let message = {
-                type: 'refresh',
-                url: response.url,
-                eTag: response.headers.get('ETag')
-            };
-            client.postMessage(JSON.stringify(message));
-        });
-    });
-}
+        )
+    );
+});
