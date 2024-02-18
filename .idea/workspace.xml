@@ -14,6 +14,7 @@
       <change beforePath="$PROJECT_DIR$/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/documentation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
+    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Custom css navbar et documentation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,5 +197,8 @@
     <option name="LAST_COMMIT_MESSAGE" value="erreur style enlever" />
     <MESSAGE value="Début page Documentation" />
     <option name="LAST_COMMIT_MESSAGE" value="Début page Documentation" />
+    <MESSAGE value="Réglages de bugs" />
+    <MESSAGE value="Custom css navbar et documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Custom css navbar et documentation" />
   </component>
 </project>
