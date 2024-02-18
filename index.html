@@ -17,16 +17,22 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-
 <header>
+    <label class="logo"><h2>itsHotHotHot !</h2></label>
+    <input type="checkbox" id="nav_check" hidden>
     <nav>
         <ul>
-            <li><a href="">Accueil</a></li>
-            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="">Documentation</a></li>
             <li><a><button id="notifications">S'abonner aux notifications</button></a></li>
             <li><a><button class="add-button">Ajouter sur l'écran d'acceuil</button></a></li>
         </ul>
     </nav>
+    <label for="nav_check" aria-label="toggle curtain navigation" class="hamburger">
+        <div class="line l1"></div>
+        <div class="line l2"></div>
+        <div class="line l3"></div>
+    </label>
 </header>
 
 <section>
@@ -63,9 +69,9 @@
    <div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
     <h1>Historique des températures</h1>
     <div id="history">
-        <h2>Température Intérieure</h2>
+        <h2 class="tostyle">Température Intérieure</h2>
         <ul id="history-interior" aria-live="polite"></ul>
-        <h2>Température Extérieure</h2>
+        <h2 class="tostyle">Température Extérieure</h2>
         <ul id="history-exterior" aria-live="polite"></ul>
     </div>
 </div>
@@ -73,6 +79,7 @@
 <script type="module" src="assets/js/Main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="assets/js/websocket.js"></script>
+<script src="assets/js/navbar.js"></script>
 
 </body>
 </html>

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="reglage de probleme lié a l historique et aussi le graphique">
-      <change afterPath="$PROJECT_DIR$/assets/img/software-developer-girl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/software-developer.png" afterDir="false" />
+    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Début page Documentation">
+      <change afterPath="$PROJECT_DIR$/assets/js/navbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
@@ -78,6 +77,7 @@
       <workItem from="1708263661626" duration="1066000" />
       <workItem from="1708264754578" duration="478000" />
       <workItem from="1708265254386" duration="4973000" />
+      <workItem from="1708274316096" duration="12018000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -135,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708187344932</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Début page Documentation">
+      <option name="closed" value="true" />
+      <created>1708272778559</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708272778559</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +168,7 @@
     <MESSAGE value="changement des positionement site" />
     <MESSAGE value="graphe separation des 2 courbe de donne pour un meilleur visuelle" />
     <MESSAGE value="reglage de probleme lié a l historique et aussi le graphique" />
-    <option name="LAST_COMMIT_MESSAGE" value="reglage de probleme lié a l historique et aussi le graphique" />
+    <MESSAGE value="Début page Documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Début page Documentation" />
   </component>
 </project>

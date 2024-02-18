@@ -1,35 +1,51 @@
 body {
     font-family: Arial, sans-serif;
+    text-decoration: none;
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 /*-------------------------------------NAVBAR------------------------------------*/
 
 header {
-    background-color: #333;
-    padding: 10px;
+    background-color: #2a2a2a;
+    width: 100%;
+    height : 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    border-bottom: 3px solid #2a2a2a;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+label.logo {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: white;
+    line-height: 80px;
+    font-weight: bold;
 }
 
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+header nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
 }
 
-nav ul li:last-child {
-    margin-right: 0;
+header nav ul li {
+    margin: 0 1px;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
+header nav ul li a {
+    color: white;
     padding: 10px 20px;
-    display: block;
+    border: 3px solid transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: border-color 0.3s ease;
 }
 
 nav ul li a button {
@@ -39,7 +55,6 @@ nav ul li a button {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     border-radius: 2vh;
 }
@@ -48,11 +63,43 @@ nav ul li a button {
     background-color: #008CBA;
 }
 
+.hamburger {
+    cursor: pointer;
+    display: none;
+    margin-top: 1px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: #2a2a2a;
+}
+
+.line {
+    transition: transform 0.3s ease-out, opacity 0.1s ease-out;
+}
+
+.hamburger.active .l1 {
+    transform: translateY(7px) rotate(135deg);
+    width: 35px;
+}
+
+.hamburger.active .l2 {
+    opacity: 0;
+}
+
+.hamburger.active .l3 {
+    transform: translateY(-8px) rotate(-135deg);
+    width: 35px;
+}
+
+
 #panel1{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #temp-int, #temp-ext{
@@ -63,7 +110,7 @@ nav ul li a button {
 
 section {
     width: 80%;
-    margin: auto;
+    margin: 1vh;
 }
 
 .thermometer{
@@ -175,22 +222,22 @@ section {
 /* style css pour le thermometre  */
 .blue{
     background-color: blue;
-    border-radius: 2vh;
+    border-radius: 25px;
 }
 
 .green{
     background-color: green;
-    border-radius: 2vh;
+    border-radius: 25px;
 }
 
 .orange{
     background-color: orange;
-    border-radius: 2vh;
+    border-radius: 25px;
 }
 
 .red{
     background-color: red;
-    border-radius: 2vh;
+    border-radius: 25px;
 }
 
 /*-------------------------------------GRAPH------------------------------------*/
@@ -216,56 +263,130 @@ section {
 
 /*-------------------------------------DOCUMENTATION------------------------------------*/
 
-.member-presentation{
+.member-presentation {
     display: flex;
     justify-content: center;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2vh;
     flex-wrap: wrap;
-    flex-direction: row;
 }
 
-.member{
+.member {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    height: 25vh;
-    width: 30vw;
-    padding: 1vh;
+    align-items: center;
+    text-align: center;
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
-.dev-image{
+.dev-image {
     height: 10vh;
     width: 10vh;
+    border-radius: 50%;
+}
+
+h1, .tostyle, .member-name, .difficulties {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+h1, .tostyle{
+    font-size: 3vh;
+}
+
+.tostyle{
+    background-color: #008CBA;
+}
+
+.member-paragraph {
+    width: 100%;
+    text-align: center;
+}
+
+.git-link {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.git-link a {
+    color: #4CAF50;
+    text-decoration: none;
+    border-bottom: 1px solid #4CAF50;
+    transition: border-bottom 0.3s ease;
+}
+
+.git-link a:hover {
+    border-bottom: 2px solid #4CAF50;
 }
 
 /*-------------------------------------MEDIA QUERIES------------------------------------*/
 
 
-@media only screen and (max-width : 900px){
+@media only screen and (min-width : 380px) and (max-width : 1050px){
     header{
-        padding: 0 30px;
+        padding: 0 0;
         background-color: white;
     }
 
-    nav ul li a{
-        color: #000;
+    .hamburger{
+        display: block;
+        top: 13px;
+    }
+    header nav{
+        position: absolute;
+        width: 95%;
+        left: -100%;
+        top: 80px;
+        height: 100vh;
+        background-color: #282828;
+        backdrop-filter: blur(4px);
+        transition: all 1s ease;
+        padding: 20px;
+        transform: translate(-100%);
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    header #nav_check:checked ~ nav{
+        left: 0;
+    }
+    header nav ul{
+        display: block;
+    }
+
+    header nav ul li{
+        margin-bottom: 4vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header nav ul li a{
+        color:white;
+        margin: 5px 0 ;
+    }
+
+    header nav.active {
+        transform: translate(0);
+    }
+    label.logo{
+        color: #2a2a2a;
     }
 
     nav ul li a button{
+        font-size: 3vh;
         color: white;
     }
 
     section{
         width: 95%;
-    }
-
-    #panel1{
-        flex-direction: column;
     }
 }
 
@@ -291,6 +412,22 @@ section {
         padding: 10px;
     }
 
+    .member {
+        width: 100%;
+    }
+
+    h1, h2{
+        font-size: 2vh;
+    }
+
+    label.logo{
+        font-size: 10vw;
+        color: #2a2a2a;
+    }
+
+    #panel1{
+        flex-direction: column;
+    }
 }
 
 /*-------------------------------------GRAPH------------------------------------*/
