@@ -6,7 +6,7 @@ class NotificationsInt {
         this.dailyMaxInt = null;
         this.alertInt = null;
         this.messageZoneInt = document.getElementById("messageInt");
-        this.thermometerFillInt = document.getElementById("messageInt");
+        this.thermometerFillInt = document.getElementById("thermometerFillInt");
 
         this.permissionButton = document.getElementById("notifications");
         this.permissionButton.addEventListener("click", this.permission);

@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="erreur style enlever">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/favicon/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/websocket.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/websocket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/documentation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/app.webmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/NotificationsInt.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/NotificationsInt.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
