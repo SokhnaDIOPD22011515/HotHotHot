@@ -19,6 +19,8 @@
 </head>
 <body>
 <header>
+    <label class="logo"><h2>itsHotHotHot !</h2></label>
+    <input type="checkbox" id="nav_check" hidden>
     <nav>
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -27,39 +29,49 @@
             <li><a><button class="add-button">Ajouter sur l'écran d'acceuil</button></a></li>
         </ul>
     </nav>
+    <label for="nav_check" aria-label="toggle curtain navigation" class="hamburger">
+        <div class="line l1"></div>
+        <div class="line l2"></div>
+        <div class="line l3"></div>
+    </label>
 </header>
 
 <div>
-    <h2>Présentation de l’équipe et du rôle de chacun:</h2>
+    <h2 class="tostyle">Présentation de l’équipe et du rôle de chacun</h2>
     <div class="member-presentation">
         <div class="member">
-            <img class="dev-image" src="/assets/img/software-developer.png" alt="image développeur web">
-            <h3>Myke</h3>
-            <p>Myke c'est occupé du Manifest, du service Worker et du système de notification.</p>
+            <img class="dev-image" src="./assets/img/software-developer.png" alt="image développeur web"/>
+            <h3 class="member-name">Myke</h3>
+            <p class="member-paragraph">Myke c'est occupé du Manifest, du service Worker et du système de notification.</p>
         </div>
 
         <div class="member">
-            <img class="dev-image" src="/assets/img/software-developer.png" alt="image développeur web">
-            <h3>Axel</h3>
-            <p>Axel s'est chargé de.... à remplir</p>
+            <img class="dev-image" src="./assets/img/software-developer.png" alt="image développeur web"/>
+            <h3 class="member-name">Axel</h3>
+            <p class="member-paragraph">Axel s'est chargé de.... à remplir</p>
         </div>
 
         <div class="member">
-            <img class="dev-image" src="/assets/img/software-developer-girl.png" alt="image développeur web">
-            <h3>Sokhna</h3>
-            <p>Sokhna : Sokhna s'est chargé du serveur HTTPS (chargement des données dans AlwaysData), une partie du Websocket ainsi que du lot 1 (barre de navigation)</p>
+            <img class="dev-image" src="./assets/img/software-developer-girl.png" alt="image développeur web"/>
+            <h3 class="member-name">Sokhna</h3>
+            <p class="member-paragraph">Sokhna s'est chargé du serveur HTTPS (chargement des données dans AlwaysData), une partie du Websocket ainsi que du lot 1 (barre de navigation)</p>
         </div>
     </div>
 
-    <h2>Outils utilisés et organisation (gestion de projet, dépôt git avec url), planning de réalisation :</h2>
-    <p>Dépot Git : <a href="https://github.com/SokhnaDIOPD22011515/HotHotHot">https://github.com/SokhnaDIOPD22011515/HotHotHot</a></p>
-    <h2>2 principales difficultés rencontrées et solution apportée : </h2>
-    <p>Certification HTTPS :</p>
+    <h2 class="tostyle">Outils utilisés et organisation (gestion de projet, dépôt git avec url), planning de réalisation :</h2>
+    <p class="git-link">Dépot Git : <a href="https://github.com/SokhnaDIOPD22011515/HotHotHot">https://github.com/SokhnaDIOPD22011515/HotHotHot</a></p>
+    <h2 class="tostyle">2 principales difficultés rencontrées et solution apportée </h2>
+
+    <h3 class="difficulties">Certification HTTPS</h3>
+    <p>Certification HTTPS blablabla</p>
+
+    <h3 class="difficulties">Manifeste</h3>
     <p>
-        Manifest : Pour la création et la rédaction du contenu de ce fichier, nous n'avons pas rencontré de problèmes particulier.<br>
+        Pour la création et la rédaction du contenu de ce fichier, nous n'avons pas rencontré de problèmes particulier.<br>
         Mais nous avons eu plus de mal pour ce qui est de la lisaison avec la page principale. <br> Nous avons réussi à lier ce fichier au reste du fichier HTML de base, notre index, mais il se trouve que le système n'arrivais à charger ce fichier.
     </p>
-    <h2>Si vous deviez recommencer ce projet, que changeriez vous à vos pratiques ?</h2>
+    <h2 class="tostyle">Si vous deviez recommencez ce projet, que changeriez vous à vos pratiques ?</h2>
 </div>
+<script src="assets/js/navbar.js"></script>
 </body>
 </html>
