@@ -11,6 +11,18 @@ class NotificationsInt {
         this.permissionButton = document.getElementById("notifications");
         this.permissionButton.addEventListener("click", this.permission);
     }
+
+    update(data){
+        console.log("J'update");
+        this.alertInt = this.detectAlertsInt(data);
+        console.log(data);
+        console.log("L'alerte de la notif : " + this.alertInt.description);
+        this.displayMessageInt(this.alertInt);
+        this.displayNotificationInt(this.alertInt);
+    }
+
+
+
     permission() {
         console.log("Je test la permission");
         if (Notification.permission !== 'granted') {
@@ -110,14 +122,7 @@ class NotificationsInt {
         }
     }
 
-    update(data){
-        console.log("J'update");
-        this.alertInt = this.detectAlertsInt(data);
-        console.log(data);
-        console.log("L'alerte de la notif : " + this.alertInt.description);
-        this.displayMessageInt(this.alertInt);
-        this.displayNotificationInt(this.alertInt);
-    }
+
 
 }
 

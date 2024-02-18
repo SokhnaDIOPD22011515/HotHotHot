@@ -1,16 +1,24 @@
 class NotificationExt{
     constructor() {
-        this.thresholdMinExt = null; //la valeur du seuil de la température min extérieur
-        this.thresholdMaxExt = null; //la valeur du seuil de la température max extérieur
-        this.dailyMinExt = null; //la valeur min journalière de la température extérieur
-        this.dailyMaxExt = null; //la valeur max journalière de la température extérieur
-        this.alertExt = this.detectAlertsExt(data);
-        this.messageZoneExt = document.getElementById("messageExt");
-        this.thermometerFillExt = document.getElementById("thermometerFillExt");
-
+        this.thresholdMinExt = null;
+        this.thresholdMaxExt = null;
+        this.dailyMinExt = null;
+        this.dailyMaxExt = null;
+        this.alertExt = null;
+        this.messageZoneExtId = "messageExt";
+        this.thermometerFillExtId = "thermometerFillExt";
         this.permissionButton = document.getElementById("notifications");
         this.permissionButton.addEventListener("click", this.permission);
     }
+
+    update(data){
+        this.alertExt = this.detectAlertsExt(data);
+        this.messageZoneExt = document.getElementById(this.messageZoneExtId);
+        this.thermometerFillExt = document.getElementById(this.thermometerFillExtId);
+        this.displayMessageExt(this.alertExt);
+        this.displayNotificationExt(this.alertExt);
+    }
+
     permission() {
         if (Notification.permission !== 'granted') {
             Notification.requestPermission().then(function (result) {
@@ -69,8 +77,4 @@ class NotificationExt{
         }
     }
 
-    update(data){
-        this.displayMessageExt(this.alertExt);
-        this.displayNotificationExt(this.alertExt);
-    }
 }
