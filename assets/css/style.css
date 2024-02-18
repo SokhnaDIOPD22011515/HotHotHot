@@ -5,8 +5,12 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-}
 
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    max-width: 100%;
+}
 /*-------------------------------------NAVBAR------------------------------------*/
 
 header {
