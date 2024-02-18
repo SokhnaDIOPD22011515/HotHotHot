@@ -175,18 +175,22 @@ section {
 /* style css pour le thermometre  */
 .blue{
     background-color: blue;
+    border-radius: 2vh;
 }
 
 .green{
     background-color: green;
+    border-radius: 2vh;
 }
 
 .orange{
     background-color: orange;
+    border-radius: 2vh;
 }
 
 .red{
     background-color: red;
+    border-radius: 2vh;
 }
 
 /*-------------------------------------GRAPH------------------------------------*/
@@ -209,6 +213,36 @@ section {
 #history-exterior {
     text-align: right;
 }
+
+/*-------------------------------------DOCUMENTATION------------------------------------*/
+
+.member-presentation{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2vh;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.member{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 25vh;
+    width: 30vw;
+    padding: 1vh;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.dev-image{
+    height: 10vh;
+    width: 10vh;
+}
+
 /*-------------------------------------MEDIA QUERIES------------------------------------*/
 
 
