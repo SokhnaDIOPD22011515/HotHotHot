@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="erreur style enlever">
       <change beforePath="$PROJECT_DIR$/assets/js/NotificationsInt.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/NotificationsInt.js" afterDir="false" />
+    <list default="true" id="3335b2be-27ce-4a6c-8dfc-e90488ab2927" name="Changes" comment="Début page Documentation">
+      <change afterPath="$PROJECT_DIR$/assets/js/navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/documentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +83,7 @@
       <workItem from="1708263661626" duration="1066000" />
       <workItem from="1708264754578" duration="478000" />
       <workItem from="1708265254386" duration="4973000" />
+      <workItem from="1708274316096" duration="12018000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -150,6 +158,15 @@
       <updated>1708281732133</updated>
     </task>
     <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00008" summary="Début page Documentation">
+      <option name="closed" value="true" />
+      <created>1708272778559</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708272778559</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,5 +194,7 @@
     <MESSAGE value="commit version qui est toujours cassé" />
     <MESSAGE value="erreur style enlever" />
     <option name="LAST_COMMIT_MESSAGE" value="erreur style enlever" />
+    <MESSAGE value="Début page Documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Début page Documentation" />
   </component>
 </project>
