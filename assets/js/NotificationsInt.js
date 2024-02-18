@@ -1,3 +1,4 @@
+
 class NotificationsInt {
     constructor() {
         this.thresholdMinInt = null;
@@ -5,12 +6,22 @@ class NotificationsInt {
         this.dailyMinInt = null;
         this.dailyMaxInt = null;
         this.alertInt = null;
-        this.messageZoneInt = document.getElementById("messageInt");
-        this.thermometerFillInt = document.getElementById("thermometerFillExt");
-
+        this.messageZoneIntId = "messageInt";
+        this.thermometerFillIntId = "thermometerFillInt";
         this.permissionButton = document.getElementById("notifications");
         this.permissionButton.addEventListener("click", this.permission);
     }
+
+    update(data){
+        this.alertInt = this.detectAlertsInt(data);
+        this.messageZoneInt = document.getElementById(this.messageZoneIntId);
+        this.thermometerFillInt = document.getElementById(this.thermometerFillIntId);
+        this.displayMessageInt(this.alertInt);
+        this.displayNotificationInt(this.alertInt);
+    }
+
+
+
     permission() {
         if (Notification.permission !== 'granted') {
             Notification.requestPermission().then(function (result) {
@@ -79,11 +90,7 @@ class NotificationsInt {
         }
     }
 
-    update(data){
-        this.alertInt = this.detectAlertsInt(data);
-        this.displayMessageInt(this.alertInt);
-        this.displayNotificationInt(this.alertInt);
-    }
+
 
 }
 

@@ -4,26 +4,24 @@ import SensorOutside from "./SensorOutside.js";
 import History from "./History.js";
 import NotificationsInt from "./NotificationsInt.js";
 
-
 document.addEventListener('DOMContentLoaded', async () => {
     let history = new History();
     let tab = new Tab();
     let notificationInt = new NotificationsInt();
 
     let sensorInt = new SensorInside(
-        document.getElementById('thermometerFillInt'),
-        document.getElementById('temperatureIntInt'),
-        document.getElementById('messageInt'),
+        'thermometerFillInt',
+        'temperatureIntInt',
+        'messageInt',
         history
     );
     let sensorExt = new SensorOutside(
-        document.getElementById('thermometerFillExt'),
-        document.getElementById('temperatureExtExt'),
-        document.getElementById('messageExt'),
+        'thermometerFillExt',
+        'temperatureExtExt',
+        'messageExt',
         history
     );
     tab.init();
-
 
     sensorInt.observable.subscribe(notificationInt);
     sensorInt.observable.notify(await sensorInt.fetchDataFromAPI());

@@ -1,15 +1,15 @@
+// SensorInside.js
 import Sensor from "./Sensor.js";
 import Observable from "./Observable.js";
 
 class SensorInside extends Sensor{
-    constructor(thermometerFillElement, temperatureElement, messageElement, historic) {
-        super(thermometerFillElement, temperatureElement, messageElement, historic);
+    constructor(thermometerFillElementId, temperatureElement, messageElement, historic) {
+        super(thermometerFillElementId, temperatureElement, messageElement, historic);
+        this.thermometerFillElementId = thermometerFillElementId;
+        this.temperatureElement = document.getElementById(temperatureElement);
+        this.messageElement = document.getElementById(messageElement);
         this.cache = new Map();
         this.observable = new Observable();
-    }
-
-    updateTemperature(temperature) {
-        super.updateTemperature(temperature);
     }
 
     getApiUrl() {
@@ -22,9 +22,6 @@ class SensorInside extends Sensor{
         }
 
         const response = await fetch(this.getApiUrl());
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
         const data = await response.json();
         this.cache.set(this.getApiUrl(), data);
         return data;
