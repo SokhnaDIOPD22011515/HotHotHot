@@ -2,9 +2,17 @@ import Tab from "./Tab.js";
 import SensorInside from "./SensorInside.js";
 import SensorOutside from "./SensorOutside.js";
 import History from "./History.js";
+import NotificationsInt from "./NotificationsInt";
+
+console.log("Test");
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    console.log("Test");
+
     let history = new History();
     let tab = new Tab();
+    let notificationInt = new NotificationsInt();
 
     let sensorInt = new SensorInside(
         document.getElementById('thermometerFillInt'),
@@ -19,7 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
         history
     );
     tab.init();
+
+    console.log("Test");
+
+
+    sensorInt.observable.subscribe(notificationInt);
+    sensorInt.observable.notify(sensorInt.fetchDataFromAPI());
 });
+
+console.log("Test");
 
 
 if ('serviceWorker' in navigator) {
@@ -31,6 +47,8 @@ if ('serviceWorker' in navigator) {
             console.error("Erreur lors de l'enregistrement du Service Worker : ", error);
         });
 }
+
+console.log("Test");
 
 /*
 let socket = new WebSocket(‘wss: url du serveur:numéro de port');
@@ -50,3 +68,6 @@ socket.onopen = function(event) {
         datas.innerHTML = event.data;
     }
 }*/
+
+
+console.log("Test");

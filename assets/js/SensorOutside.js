@@ -1,9 +1,11 @@
 import Sensor from "./Sensor.js";
+import Observable from "./Observable";
 
 class SensorOutside extends Sensor{
     constructor(thermometerFillElement, temperatureElement, messageElement, historic) {
         super(thermometerFillElement, temperatureElement, messageElement, historic);
         this.cache = new Map();
+        this.observable = new Observable();
     }
 
     updateTemperature(temperature) {
