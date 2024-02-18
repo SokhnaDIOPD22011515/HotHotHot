@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let history = new History();
     let tab = new Tab();
     let notificationInt = new NotificationsInt();
+    let notificationExt = new NotificationsExt();
 
     let sensorInt = new SensorInside(
         'thermometerFillInt',
@@ -22,6 +23,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         history
     );
     tab.init();
+
+
+    notificationExt
+
+
+
+
+
+
+
 
     let data = await sensorInt.fetchDataFromAPI();
     let valeurCapteurInterieur = data.capteurs[0].Valeur;

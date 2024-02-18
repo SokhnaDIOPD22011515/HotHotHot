@@ -1,4 +1,4 @@
-class NotificationExt{
+class NotificationsExt {
     constructor() {
         this.thresholdMinExt = null;
         this.thresholdMaxExt = null;
