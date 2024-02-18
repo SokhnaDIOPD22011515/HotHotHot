@@ -26,7 +26,7 @@ header {
 }
 
 label.logo {
-    font-size: 20px;
+    font-size: 15px;
     text-transform: uppercase;
     color: white;
     line-height: 80px;
@@ -110,6 +110,7 @@ nav ul li a button {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    height: auto;
 }
 
 #temp-int, #temp-ext{
@@ -128,8 +129,8 @@ nav ul li a button {
 /*-------------------------------------THERMOMETERS------------------------------------*/
 
 section {
-    width: 99%;
-    margin: 1vh;
+    width: 100%;
+    margin: 0.5vh;
 }
 
 .container{
@@ -465,12 +466,11 @@ h1, .tostyle{
     }
 
     section{
-        width: 98%;
+        width: 100%;
     }
 
-    .panel1{
+    #panel1{
         flex-direction: column;
-        flex-wrap: wrap;
     }
 }
 
@@ -526,9 +526,6 @@ h1, .tostyle{
 }
 
 @media only screen and (max-width: 600px) {
-    #panel1 {
-        flex-direction: column;
-    }
 }
 
 /*-------------------------------------GRAPH------------------------------------*/
