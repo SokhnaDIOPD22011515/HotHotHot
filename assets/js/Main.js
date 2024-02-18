@@ -42,29 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("Valeur du capteur intérieur :", valueSensorInt);
 
 
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-
-        const installButton = document.querySelector('.add-button');
-        installButton.style.display = 'block';
-
-        installButton.addEventListener('click', (e) => {
-            installButton.style.display = 'none';
-            deferredPrompt.prompt();
-
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the install prompt');
-                } else {
-                    console.log('User dismissed the install prompt');
-                }
-                deferredPrompt = null;
-            });
-        });
-    });
     if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js')
         .then(registration => {
