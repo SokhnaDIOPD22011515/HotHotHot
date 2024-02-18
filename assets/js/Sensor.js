@@ -11,7 +11,6 @@ class Sensor {
         setInterval(() => {
             this.fetchDataFromAPI()
                 .then(data => {
-                    console.log('Received data:', data);
                     if (data && data.capteurs && data.capteurs.length > 0 && 'Valeur' in data.capteurs[0]) {
                         const temperature = data.capteurs[0].Valeur;
                         this.updateTemperature(temperature);
@@ -42,31 +41,6 @@ class Sensor {
             this.temperatureElement.textContent = tempValue + '°C';
             let datasetIndex = this.thermometerFillElementId.includes('Int') ? 0 : 1;
             this.historic.addTemperature(tempValue, new Date().toLocaleTimeString('fr-FR'), datasetIndex);
-
-            this.thermometerFillElement.classList.remove('blue', 'green', 'orange', 'red');
-            this.messageElement.classList.remove('alert-info', 'alert-success', 'alert-warning', 'alert-danger');
-        if (tempValue < 0) {
-            this.thermometerFillElement.classList.add('blue');
-            this.messageElement.classList.add('alert-info');
-            this.messageElement.textContent = 'canalisations gelées, appelez SOS plombier et mettez un bonnet !';
-        } else if (tempValue <= 12) {
-            this.thermometerFillElement.classList.add('green');
-            this.messageElement.classList.add('alert-success');
-            this.messageElement.textContent = 'montez le chauffage ou mettez un gros pull !';
-        } else if (tempValue < 22) {
-            this.thermometerFillElement.classList.add('green');
-            this.messageElement.classList.add('alert-success');
-        } else if (tempValue >= 22) {
-            this.thermometerFillElement.classList.add('orange');
-            this.messageElement.classList.add('alert-warning');
-            this.messageElement.textContent = 'Baissez le chauffage !';
-        } else if (tempValue >= 50) {
-            this.thermometerFillElement.classList.add('red');
-            this.messageElement.classList.add('alert-warning');
-            this.messageElement.textContent = 'Appelez les pompiers ou arrêtez votre barbecue !';
-        } else {
-            console.error('Element with id ' + this.thermometerFillElementId + ' not found');
-        }
         }
     }
 }

@@ -13,9 +13,8 @@ class NotificationsInt {
     }
 
     update(data){
-        console.log("J'update");
         this.alertInt = this.detectAlertsInt(data);
-        console.log(data);
+        console.log("Valeur data int : " + data);
         console.log("L'alerte de la notif : " + this.alertInt.description);
         this.displayMessageInt(this.alertInt);
         this.displayNotificationInt(this.alertInt);
@@ -46,7 +45,7 @@ class NotificationsInt {
     }
 
     detectAlertsInt(averageTempInt) {
-        console.log("Je rentre dans la detection avec  la valeur à : " + averageTempInt)
+        console.log("(Int) Je rentre dans la detection avec  la valeur à : " + averageTempInt)
 
         let alert  = {
             type: null,
@@ -114,7 +113,6 @@ class NotificationsInt {
             });
             console.log("Je lance la notif avec : " + alert.type)
             console.log(notification)
-
         }
     }
 

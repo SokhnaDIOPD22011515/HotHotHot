@@ -3,11 +3,16 @@ import SensorInside from "./SensorInside.js";
 import SensorOutside from "./SensorOutside.js";
 import History from "./History.js";
 import NotificationsInt from "./NotificationsInt.js";
+import NotificationsExt from "./NotificationsExt.js";
+
+
 
 document.addEventListener('DOMContentLoaded', async () => {
     let history = new History();
     let tab = new Tab();
     let notificationInt = new NotificationsInt();
+    let notificationExt = new NotificationsExt();
+
 
     let sensorInt = new SensorInside(
         'thermometerFillInt',
@@ -23,14 +28,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     );
     tab.init();
 
-    let data = await sensorInt.fetchDataFromAPI();
-    let valeurCapteurInterieur = data.capteurs[0].Valeur;
-    console.log("Valeur du capteur intérieur :", valeurCapteurInterieur);
+    let dataExt = await sensorExt.fetchDataFromAPI();
+    let valueSensorExt = dataExt.capteurs[0].Valeur;
+    sensorExt.observable.subscribe(notificationExt);
+    sensorExt.observable.notify(valueSensorExt);
+    console.log("Valeur du capteur extérieur :", valueSensorExt);
 
 
+    let dataInt = await sensorInt.fetchDataFromAPI();
+    let valueSensorInt = dataInt.capteurs[0].Valeur;
     sensorInt.observable.subscribe(notificationInt);
-    console.log(sensorInt.observable.observers);
-    sensorInt.observable.notify(valeurCapteurInterieur);
+    sensorInt.observable.notify(valueSensorInt);
+    console.log("Valeur du capteur intérieur :", valueSensorInt);
+
 
     let deferredPrompt;
 
